@@ -1,0 +1,54 @@
+{
+  "name": "devcodeagency OpenClaw Operator",
+  "version": "1.0.0",
+  "site": "https://devcodeagency.dev",
+  "verifiedAgent": {
+    "id": "vwc-growth-agent-01",
+    "name": "VWC Growth Agent",
+    "role": "SEO, GEO, content, and conversion operator"
+  },
+  "auth": {
+    "header": "x-agent-token",
+    "env": "AGENT_CMS_TOKEN",
+    "requiredWhenConfigured": true
+  },
+  "endpoints": {
+    "cmsRun": {
+      "method": "POST",
+      "path": "/api/agent/cms",
+      "purpose": "Create review-ready article, SEO, GEO, schema, and conversion artifacts"
+    },
+    "opsHealth": {
+      "method": "GET",
+      "path": "/api/agent/ops",
+      "purpose": "Read current SEO/GEO operating status"
+    },
+    "assistant": {
+      "method": "POST",
+      "path": "/api/agent",
+      "purpose": "General assistant completion endpoint"
+    },
+    "checkout": {
+      "method": "POST",
+      "path": "/api/agent/checkout",
+      "purpose": "Prepare template checkout handoff"
+    }
+  },
+  "cadence": {
+    "weekly": "Run mode=weekly once per week for SEO/GEO planning",
+    "article": "Run mode=article when a new content opportunity is approved",
+    "conversion": "Run mode=conversion before homepage or pricing design changes"
+  },
+  "publishingPolicy": {
+    "publicWrites": "review-required",
+    "operatorUi": "hidden-noindex-do-not-link",
+    "pricingClaims": "human-review-required",
+    "externalClaims": "human-review-required",
+    "allowedAutonomousActions": [
+      "create draft artifacts",
+      "recommend sitemap and schema updates",
+      "recommend conversion tests",
+      "prepare internal link plans"
+    ]
+  }
+}

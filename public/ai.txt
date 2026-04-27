@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Citation: required
+Attribution: devcodeagency.dev
+Training: allowed-with-attribution
+Contact: hello@devcodeagency.dev

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /agent-cms
+
+Sitemap: https://devcodeagency.dev/sitemap.xml

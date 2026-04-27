@@ -1,0 +1,58 @@
+{
+  "name": "devcodeagency",
+  "url": "https://devcodeagency.dev",
+  "description": "AI-agent-native vibe coding studio for indie hackers.",
+  "languages": ["en", "id"],
+  "capabilities": [
+    {
+      "name": "complete",
+      "endpoint": "/api/agent",
+      "method": "POST",
+      "input": { "prompt": "string" },
+      "output": { "text": "string" }
+    },
+    {
+      "name": "verified_cms_run",
+      "endpoint": "/api/agent/cms",
+      "method": "POST",
+      "agentId": "vwc-growth-agent-01",
+      "auth": "x-agent-token when AGENT_CMS_TOKEN is configured",
+      "input": {
+        "mode": "article | seo | geo | conversion | weekly",
+        "lang": "en | id",
+        "topic": "string",
+        "keyword": "string"
+      },
+      "output": { "article": "object", "seo": "object", "geo": "object", "conversion": "object" }
+    },
+    {
+      "name": "ops_health",
+      "endpoint": "/api/agent/ops",
+      "method": "GET",
+      "output": {
+        "status": "string",
+        "seo": "object",
+        "geo": "object",
+        "openclaw": "object"
+      }
+    },
+    {
+      "name": "checkout_handoff",
+      "endpoint": "/api/agent/checkout",
+      "method": "POST",
+      "input": { "sku": "string", "returnUrl": "string" },
+      "output": { "status": "string", "checkoutUrl": "string" }
+    }
+  ],
+  "pricing": {
+    "starterSprint": { "price": 1400, "currency": "USD", "duration": "1 week" },
+    "fullMvp": { "price": 4800, "currency": "USD", "duration": "2-3 weeks" },
+    "asyncRetainer": { "price": 3200, "currency": "USD", "interval": "month" }
+  },
+  "operatorManifests": {
+    "openclaw": "/.well-known/openclaw.json",
+    "openapi": "/openapi.json",
+    "llms": "/llms.txt"
+  },
+  "contact": "hello@devcodeagency.dev"
+}

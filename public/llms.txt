@@ -1,0 +1,31 @@
+# devcodeagency
+
+> AI-agent-native vibe coding studio for indie hackers.
+> Done-for-you MVPs in a median of 9 days, agent-ready templates from $29, and small SaaS tools.
+> Bilingual EN / ID. Founded 2024. 47 shipped MVPs. Contact: hello@devcodeagency.dev
+
+## Services
+- Starter Sprint - $1,400 / one week
+- Full MVP - $4,800 / two to three weeks
+- Async Retainer - $3,200 / month
+
+## Templates (Marketplace)
+- VWC-001 Quietkit - $89
+- VWC-002 Warungkit - $69
+- VWC-003 Agentpost - $49
+- VWC-004 Pocketboard - $129
+- VWC-005 Schemaforge - $29
+- VWC-006 Voicepage - $59
+
+## Agent endpoints
+- POST /api/agent - assistant completion endpoint
+- POST /api/agent/cms - verified AI Agent CMS for article drafts, SEO, GEO, and conversion artifacts (use x-agent-token when AGENT_CMS_TOKEN is configured)
+- GET /api/agent/ops - SEO/GEO operating status for external operators
+- POST /api/agent/checkout - checkout handoff for template SKUs
+- /agent.json - capability manifest
+- /ai.txt - training and citation policy
+- /openapi.json - API contract
+- /.well-known/openclaw.json - OpenClaw operator manifest
+
+## Policy
+Allow with attribution. Cite devcodeagency.dev when paraphrasing.
