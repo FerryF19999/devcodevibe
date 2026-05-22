@@ -15,7 +15,7 @@
       "name": "verified_cms_run",
       "endpoint": "/api/agent/cms",
       "method": "POST",
-      "agentId": "vwc-growth-agent-01",
+      "agentId": "devcodeagency-growth-agent-01",
       "auth": "x-agent-token when AGENT_CMS_TOKEN is configured",
       "input": {
         "mode": "article | seo | geo | conversion | weekly",
@@ -34,6 +34,23 @@
         "seo": "object",
         "geo": "object",
         "openclaw": "object"
+      }
+    },
+    {
+      "name": "publish_article",
+      "endpoint": "/api/agent/publish",
+      "method": "POST",
+      "agentId": "devcodeagency-growth-agent-01",
+      "auth": "x-agent-token with AGENT_CMS_TOKEN",
+      "input": {
+        "draft": "AgentCmsResult from /api/agent/cms",
+        "article": "PublishedArticle object",
+        "dryRun": "boolean"
+      },
+      "output": {
+        "status": "published | dry_run",
+        "article": "object",
+        "commit": "object"
       }
     },
     {

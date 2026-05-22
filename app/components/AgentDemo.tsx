@@ -83,7 +83,7 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
         <div className="vwc-agent-right">
           <div className="vwc-chat">
             <div className="vwc-chat-bar">
-              <span className="vwc-chat-dot" /> assistant.vwc · {lang.toUpperCase()}
+              <span className="vwc-chat-dot" /> assistant.devcodeagency · {lang.toUpperCase()}
               <span className="vwc-chat-bar-r">claude-haiku</span>
             </div>
             <div className="vwc-chat-body" ref={scrollRef}>

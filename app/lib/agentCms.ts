@@ -1,4 +1,5 @@
 import type { Lang } from "./copy";
+import publishedArticles from "../../content/articles.json";
 
 export type AgentCmsMode = "article" | "seo" | "geo" | "conversion" | "weekly";
 
@@ -74,8 +75,8 @@ export type PublishedArticle = {
 };
 
 export const VERIFIED_AGENT = {
-  id: "vwc-growth-agent-01",
-  name: "VWC Growth Agent",
+  id: "devcodeagency-growth-agent-01",
+  name: "devcodeagency Growth Agent",
   role: "SEO, GEO, content, and conversion operator",
   verified: true,
   version: "1.0.0",
@@ -84,184 +85,7 @@ export const VERIFIED_AGENT = {
 
 export const CMS_MODES: AgentCmsMode[] = ["article", "seo", "geo", "conversion", "weekly"];
 
-export const PUBLISHED_ARTICLES: PublishedArticle[] = [
-  {
-    slug: "autonomous-ai-agent-cms-for-seo-geo",
-    date: "2026-04-27",
-    read: "7 min",
-    title: "Autonomous AI Agent CMS for SEO and GEO",
-    excerpt:
-      "A practical operating model for one verified agent that drafts content, prepares schema, and keeps conversion work in review.",
-    metaDescription:
-      "How devcodeagency runs a single verified AI agent CMS for SEO, GEO, article drafts, schema, and conversion design tasks.",
-    tags: ["AI agent CMS", "SEO", "GEO", "conversion"],
-    sections: [
-      {
-        h: "Why one verified agent",
-        p: [
-          "Autonomous growth work gets messy when every bot can publish. devcodeagency uses one verified agent identity so every article draft, schema block, and conversion recommendation has a single accountable operator.",
-          "The agent can move fast, but the website keeps a human review layer for claims, pricing, and anything that affects trust.",
-        ],
-      },
-      {
-        h: "What the agent prepares",
-        p: [
-          "Each run creates an article outline, title tag, meta description, canonical path, internal links, FAQ answers, entity facts, and JSON-LD. The same artifact also includes conversion notes for hero copy, CTA, offer framing, and layout fixes.",
-          "This makes SEO and GEO one workflow instead of two separate checklists.",
-        ],
-      },
-      {
-        h: "How publishing stays controlled",
-        p: [
-          "The verified agent creates ready-to-review drafts. Production publishing should connect those drafts to a database, Git commit, or CMS collection with approvals and audit logs.",
-          "That boundary keeps autonomous SEO useful without letting unreviewed AI text quietly overwrite the public site.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Can an AI agent publish directly?",
-        a: "It can prepare every artifact needed to publish, but production sites should keep review and audit logging before public changes go live.",
-      },
-      {
-        q: "What makes this GEO-ready?",
-        a: "The workflow produces answer blocks, entity facts, citation-ready summaries, and schema so AI answer engines can understand the page quickly.",
-      },
-    ],
-  },
-  {
-    slug: "why-llms-txt-is-the-new-robots-txt-for-indie-saas",
-    date: "2026-04-12",
-    read: "6 min",
-    title: "Why llms.txt is the new robots.txt for indie SaaS",
-    excerpt:
-      "Robots.txt tells crawlers where they may go. llms.txt gives AI systems a concise briefing on what matters.",
-    metaDescription:
-      "Learn why indie SaaS sites should publish llms.txt alongside robots.txt for AI agents, citations, and GEO visibility.",
-    tags: ["llms.txt", "GEO", "AI search"],
-    sections: [
-      {
-        h: "A briefing layer for agents",
-        p: [
-          "Robots.txt is a permission layer. llms.txt is a context layer. It gives AI systems a short, citable overview of the company, product, pricing, policies, and canonical pages.",
-          "For small teams, this is the fastest way to make the site easier for agents to summarize accurately.",
-        ],
-      },
-      {
-        h: "What to include",
-        p: [
-          "Keep it plain text. Include the offer, audience, pricing, important URLs, contact path, and citation policy. Avoid stuffing keywords or hiding claims that do not appear on the public site.",
-          "Treat the file as a briefing note that should match the visible website.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Does llms.txt replace SEO?",
-        a: "No. It supports AI readability, but technical SEO, useful content, schema, and internal links still matter.",
-      },
-    ],
-  },
-  {
-    slug: "vibe-coding-without-the-slop-a-senior-engineers-checklist",
-    date: "2026-04-04",
-    read: "9 min",
-    title: "Vibe coding without the slop: a senior engineer's checklist",
-    excerpt:
-      "A simple review loop for shipping with coding agents while keeping architecture, QA, and user trust intact.",
-    metaDescription:
-      "A senior engineer checklist for vibe coding with AI agents: scope, review, tests, accessibility, performance, and deployment.",
-    tags: ["vibe coding", "QA", "AI engineering"],
-    sections: [
-      {
-        h: "Start with a narrow surface",
-        p: [
-          "The best agent-assisted work starts with one clear user flow. Define the inputs, outputs, failure states, and owner before asking an agent to generate code.",
-          "Small surfaces make review faster and reduce the chance that an agent changes unrelated behavior.",
-        ],
-      },
-      {
-        h: "Review behavior, not just syntax",
-        p: [
-          "A green build is not the finish line. Check loading states, empty states, mobile layout, form behavior, copy accuracy, accessibility, and whether the feature still matches the business promise.",
-          "The senior loop is steering, testing, and simplifying.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Is vibe coding only for prototypes?",
-        a: "No. With tight scope, review, and tests, agent-assisted coding can ship production features.",
-      },
-    ],
-  },
-  {
-    slug: "bahasa-first-saas-lessons-from-shipping-in-jakarta",
-    date: "2026-03-27",
-    read: "5 min",
-    title: "Bahasa-first SaaS: lessons from shipping in Jakarta",
-    excerpt:
-      "Bahasa-first software is not just translation. It changes onboarding, payment assumptions, support, and trust signals.",
-    metaDescription:
-      "Lessons from shipping Bahasa-first SaaS in Jakarta, including UX copy, QRIS, WhatsApp checkout, support, and localization.",
-    tags: ["Bahasa SaaS", "Indonesia", "localization"],
-    sections: [
-      {
-        h: "Localization is product work",
-        p: [
-          "Bahasa-first SaaS needs product choices that match the market: payment rails, customer support habits, pricing clarity, and examples users recognize.",
-          "Translation helps, but the bigger lift is removing friction from the local buying journey.",
-        ],
-      },
-      {
-        h: "Trust is visible",
-        p: [
-          "Show contact paths, clear policies, local payment options, and human support. Those signals often matter more than decorative polish.",
-          "The interface should make the next step obvious without forcing users through a Western SaaS playbook.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "Should Indonesian SaaS be bilingual?",
-        a: "Often yes. Bahasa builds comfort for local users, while English can help partners, investors, and international buyers.",
-      },
-    ],
-  },
-  {
-    slug: "geo-vs-seo-what-changed-when-chatgpt-became-a-search-engine",
-    date: "2026-03-15",
-    read: "7 min",
-    title: "GEO vs SEO: what changed when ChatGPT became a search engine",
-    excerpt:
-      "Search still matters. Generative answers add a new layer: entity clarity, citable facts, and answer-ready pages.",
-    metaDescription:
-      "Understand GEO vs SEO and how AI answer engines change content structure, schema, facts, and citation strategy.",
-    tags: ["GEO", "SEO", "AI search"],
-    sections: [
-      {
-        h: "SEO earns the crawl",
-        p: [
-          "SEO helps search engines discover, understand, and rank your pages. Fundamentals still matter: speed, crawlability, internal links, useful content, metadata, and structured data.",
-          "GEO does not replace these basics. It builds on them.",
-        ],
-      },
-      {
-        h: "GEO earns the answer",
-        p: [
-          "Generative engines prefer pages that make entities, facts, policies, pricing, and comparisons easy to extract. Clear summaries, FAQ blocks, schema, and llms.txt help.",
-          "The goal is not keyword stuffing. The goal is being easy to cite accurately.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        q: "What is the simplest GEO improvement?",
-        a: "Add concise answer blocks, JSON-LD, and a plain-language summary that matches the visible page.",
-      },
-    ],
-  },
-];
+export const PUBLISHED_ARTICLES = publishedArticles as PublishedArticle[];
 
 export function getArticleBySlug(slug: string) {
   return PUBLISHED_ARTICLES.find((article) => article.slug === slug);
@@ -371,13 +195,13 @@ export function createFallbackCmsResult(input: AgentCmsRequest): AgentCmsResult 
       entityFacts: isId
         ? [
             "Brand: devcodeagency.",
-            "Agent: VWC Growth Agent.",
+            "Agent: devcodeagency Growth Agent.",
             "Scope: artikel, SEO, GEO, design conversion.",
             "Publishing model: draft-first dengan review manusia.",
           ]
         : [
             "Brand: devcodeagency.",
-            "Agent: VWC Growth Agent.",
+            "Agent: devcodeagency Growth Agent.",
             "Scope: articles, SEO, GEO, conversion design.",
             "Publishing model: draft-first with human review.",
           ],

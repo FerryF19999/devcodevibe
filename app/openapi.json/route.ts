@@ -92,6 +92,53 @@ export async function GET() {
           },
         },
       },
+      "/api/agent/publish": {
+        get: {
+          summary: "Read the AI-agent publish contract",
+          responses: {
+            "200": {
+              description: "Publish API contract",
+            },
+          },
+        },
+        post: {
+          summary: "Publish a reviewed article draft to GitHub",
+          parameters: [
+            {
+              name: "x-agent-token",
+              in: "header",
+              required: true,
+              schema: { type: "string" },
+              description: "Must match AGENT_CMS_TOKEN.",
+            },
+          ],
+          requestBody: {
+            required: true,
+            content: {
+              "application/json": {
+                schema: {
+                  type: "object",
+                  required: ["agentId"],
+                  properties: {
+                    agentId: { type: "string", enum: [VERIFIED_AGENT.id] },
+                    draft: { type: "object" },
+                    article: { type: "object" },
+                    dryRun: { type: "boolean" },
+                    branch: { type: "string" },
+                    commitMessage: { type: "string" },
+                  },
+                },
+              },
+            },
+          },
+          responses: {
+            "200": { description: "Article published or dry-run response" },
+            "401": { description: "Missing or invalid agent token" },
+            "403": { description: "Unverified agent" },
+            "503": { description: "Publish env vars are missing" },
+          },
+        },
+      },
       "/api/agent/checkout": {
         post: {
           summary: "Prepare template checkout handoff",

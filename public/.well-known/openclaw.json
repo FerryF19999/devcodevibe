@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "site": "https://devcodeagency.dev",
   "verifiedAgent": {
-    "id": "vwc-growth-agent-01",
-    "name": "VWC Growth Agent",
+    "id": "devcodeagency-growth-agent-01",
+    "name": "devcodeagency Growth Agent",
     "role": "SEO, GEO, content, and conversion operator"
   },
   "auth": {
@@ -22,6 +22,11 @@
       "method": "GET",
       "path": "/api/agent/ops",
       "purpose": "Read current SEO/GEO operating status"
+    },
+    "publish": {
+      "method": "POST",
+      "path": "/api/agent/publish",
+      "purpose": "Publish a reviewed article draft by committing content/articles.json to GitHub"
     },
     "assistant": {
       "method": "POST",
@@ -42,13 +47,15 @@
   "publishingPolicy": {
     "publicWrites": "review-required",
     "operatorUi": "hidden-noindex-do-not-link",
+    "publishMechanism": "GitHub commit to FerryF19999/devcodevibe content/articles.json",
     "pricingClaims": "human-review-required",
     "externalClaims": "human-review-required",
     "allowedAutonomousActions": [
       "create draft artifacts",
       "recommend sitemap and schema updates",
       "recommend conversion tests",
-      "prepare internal link plans"
+      "prepare internal link plans",
+      "publish reviewed article drafts through /api/agent/publish"
     ]
   }
 }

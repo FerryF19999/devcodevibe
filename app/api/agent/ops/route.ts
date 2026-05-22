@@ -18,6 +18,7 @@ export async function GET() {
       hiddenDashboardRobots: "noindex,nofollow",
       hiddenDashboardCrawlRule: "Disallow: /agent-cms",
       cmsRun: "/api/agent/cms",
+      publish: "/api/agent/publish",
       openApi: "/openapi.json",
       sitemap: "/sitemap.xml",
       llms: "/llms.txt",
@@ -66,7 +67,20 @@ export async function GET() {
           intent: "commercial investigation",
         },
       },
-      handoff: "Use the returned artifacts to create a reviewed PR or CMS draft. Do not publish pricing, legal, or external claims without human review.",
+      publishExample: {
+        method: "POST",
+        path: "/api/agent/publish",
+        headers: {
+          "content-type": "application/json",
+          "x-agent-token": "<AGENT_CMS_TOKEN>",
+        },
+        body: {
+          agentId: VERIFIED_AGENT.id,
+          draft: "AgentCmsResult returned from /api/agent/cms",
+          dryRun: false,
+        },
+      },
+      handoff: "Use /api/agent/publish only for reviewed article drafts. Do not publish pricing, legal, or external claims without human review.",
     },
   });
 }

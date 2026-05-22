@@ -20,6 +20,7 @@
 ## Agent endpoints
 - POST /api/agent - assistant completion endpoint
 - POST /api/agent/cms - verified AI Agent CMS for article drafts, SEO, GEO, and conversion artifacts (use x-agent-token when AGENT_CMS_TOKEN is configured)
+- POST /api/agent/publish - publish a reviewed article draft by committing content/articles.json to GitHub
 - GET /api/agent/ops - SEO/GEO operating status for external operators
 - POST /api/agent/checkout - checkout handoff for template SKUs
 - /agent.json - capability manifest
