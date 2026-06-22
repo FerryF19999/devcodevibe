@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { JsonLd } from "./components/JsonLd";
+import { PostHogProvider } from "./components/PostHogProvider";
 import "./globals.css";
 
 const geist = Geist({
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd />
       </head>
       <body>
+      <PostHogProvider>
         <div className="sr-only">
           <h1>devcodeagency | AI-agent-native vibe coding studio</h1>
           <p>
@@ -86,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </p>
         </div>
         {children}
+      </PostHogProvider>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Copy, Lang } from "../lib/copy";
 import { agentComplete } from "../lib/agent";
+import { capture } from "../lib/analytics";
 import { SectionLabel } from "./shared";
 
 type Msg = { role: "user" | "agent"; text: string };
@@ -22,6 +23,10 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    capture("agent_opened", { lang });
+  }, []);
+
+  useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, busy]);
 
@@ -31,6 +36,7 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
     setMessages((m) => [...m, { role: "user", text: q }]);
     setInput("");
     setBusy(true);
+    capture("agent_question_sent", { lang });
     const sys =
       lang === "en"
         ? "You are the devcodeagency assistant. Studio offers: Starter Sprint $1,400 (1 week), Full MVP $4,800 (2-3 weeks), Async Retainer $3,200/mo. Templates: Quietkit $89, Warungkit $69, Agentpost $49, Pocketboard $129, Schemaforge $29, Voicepage $59. Median ship 9 days. Bilingual EN/ID. Be concise (under 90 words), warm, specific. End with one helpful next step."
