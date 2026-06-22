@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Copy, Lang } from "../lib/copy";
 import { agentComplete } from "../lib/agent";
+import { capture } from "../lib/analytics";
 import { Hairline } from "./shared";
 
 const HERO_EXAMPLES: Record<Lang, string[]> = {
@@ -107,6 +108,7 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
             className="vwc-prompt-box"
             onSubmit={(e) => {
               e.preventDefault();
+              capture("cta_clicked", { element: "hero_prompt_submit", label: input.slice(0, 40), lang });
               generate();
             }}
           >
@@ -136,6 +138,7 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
                     key={i}
                     type="button"
                     onClick={() => {
+                      capture("cta_clicked", { element: "hero_example_chip", label: ex, lang });
                       setInput(ex);
                       generate(ex);
                     }}

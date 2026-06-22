@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Copy, Lang } from "../lib/copy";
+import { capture } from "../lib/analytics";
 
 export function StartStrip({ t, lang }: { t: Copy; lang: Lang }) {
   const [email, setEmail] = useState("");
@@ -19,6 +20,7 @@ export function StartStrip({ t, lang }: { t: Copy; lang: Lang }) {
       });
       const data = (await res.json()) as { nextStep?: string; error?: string };
       if (!res.ok) throw new Error(data.error || "lead failed");
+      capture("lead_submitted", { email, lang });
       setStatus(data.nextStep || (lang === "en" ? "Received." : "Diterima."));
       setEmail("");
     } catch {
@@ -48,6 +50,7 @@ export function StartStrip({ t, lang }: { t: Copy; lang: Lang }) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onFocus={() => capture("lead_started", { lang })}
             placeholder={lang === "en" ? "your@email" : "email@kamu"}
             aria-label="email"
             required
