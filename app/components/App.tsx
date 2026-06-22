@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { COPY, type Lang } from "../lib/copy";
+import { capture } from "../lib/analytics";
 import { Nav } from "./Nav";
 import { Hero } from "./Hero";
 import { Services } from "./Services";
@@ -32,9 +33,11 @@ function readInitialLang(): Lang {
 
 export function App() {
   const [lang, setLang] = useState<Lang>("en");
+  const [langReady, setLangReady] = useState(false);
 
   useEffect(() => {
     setLang(readInitialLang());
+    setLangReady(true);
   }, []);
 
   useEffect(() => {
@@ -46,6 +49,32 @@ export function App() {
       window.history.replaceState(null, "", url);
     } catch {}
   }, [lang]);
+
+  useEffect(() => {
+    if (!langReady) return;
+    capture("pageview", { path: window.location.pathname, lang });
+  }, [langReady]);
+
+  useEffect(() => {
+    if (!langReady) return;
+
+    const seen = new Set<string>();
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id], header[id]"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const section = (entry.target as HTMLElement).id;
+          if (!section || seen.has(section) || !entry.isIntersecting) return;
+          seen.add(section);
+          capture("section_viewed", { section, lang });
+        });
+      },
+      { threshold: 0.35 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [lang, langReady]);
 
   const t = COPY[lang];
 

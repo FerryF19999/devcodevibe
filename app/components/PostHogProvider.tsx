@@ -21,9 +21,8 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       api_host: host || "https://us.i.posthog.com",
       capture_pageview: false, // manual pageview to include lang
       capture_pageleave: true,
-      loaded: (ph) => {
+      loaded: () => {
         (posthog as unknown as Record<string, unknown>).__loaded = true;
-        ph.capture("pageview", { path: window.location.pathname });
       },
     });
   }, []);
