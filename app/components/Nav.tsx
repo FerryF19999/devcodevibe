@@ -27,7 +27,6 @@ export function Nav({ lang, t }: Props) {
           <a
             href="/?lang=en"
             hrefLang="en"
-            aria-current={lang === "en" ? "true" : undefined}
             aria-label="Switch language to English"
             className={lang === "en" ? "on" : ""}
           >
@@ -37,7 +36,6 @@ export function Nav({ lang, t }: Props) {
           <a
             href="/?lang=id"
             hrefLang="id"
-            aria-current={lang === "id" ? "true" : undefined}
             aria-label="Ganti bahasa ke Indonesia"
             className={lang === "id" ? "on" : ""}
           >
