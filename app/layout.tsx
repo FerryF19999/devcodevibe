@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { JsonLd } from "./components/JsonLd";
 import { PostHogProvider } from "./components/PostHogProvider";
+import { SITE_URL } from "./lib/site";
 import "./globals.css";
 
 const geist = Geist({
@@ -26,7 +27,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://devcodeagency.dev"),
+  metadataBase: new URL(SITE_URL),
   title: "devcodeagency | AI-agent-native vibe coding studio for indie hackers",
   description:
     "devcodeagency is an AI-agent-native studio. Done-for-you vibe coding MVPs in 9 days, agent-ready templates, and small SaaS tools. Bilingual EN/ID. From $1,400.",
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     title: "devcodeagency | AI-agent-native vibe coding studio",
     description:
       "Done-for-you MVPs in 9 days, agent-ready templates, small SaaS tools. Bilingual EN/ID.",
-    url: "https://devcodeagency.dev/",
+    url: SITE_URL,
     siteName: "devcodeagency",
     locale: "en_US",
     alternateLocale: "id_ID",

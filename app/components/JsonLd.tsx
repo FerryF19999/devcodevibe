@@ -1,14 +1,16 @@
+import { CONTACT_EMAIL, OG_IMAGE_URL, SITE_URL } from "../lib/site";
+
 const ORG = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "devcodeagency",
   alternateName: "VWC",
-  url: "https://devcodeagency.dev",
-  logo: "https://devcodeagency.dev/og.png",
+  url: SITE_URL,
+  logo: OG_IMAGE_URL,
   description:
     "AI-agent-native studio offering done-for-you vibe coding services, agent-ready templates, and small SaaS tools for indie hackers. Bilingual English / Bahasa Indonesia.",
   foundingDate: "2024",
-  email: "hello@devcodeagency.dev",
+  email: CONTACT_EMAIL,
   knowsLanguage: ["en", "id"],
   areaServed: "Worldwide",
   sameAs: ["https://twitter.com/devcodeagency", "https://github.com/devcodeagency"],
@@ -19,8 +21,8 @@ const SERVICE = {
   "@type": "ProfessionalService",
   name: "devcodeagency",
   priceRange: "$$",
-  image: "https://devcodeagency.dev/og.png",
-  url: "https://devcodeagency.dev",
+  image: OG_IMAGE_URL,
+  url: SITE_URL,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Vibe coding services",
@@ -140,13 +142,8 @@ const SITE = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "devcodeagency",
-  url: "https://devcodeagency.dev",
+  url: SITE_URL,
   inLanguage: ["en", "id"],
-  potentialAction: {
-    "@type": "SearchAction",
-    target: "https://devcodeagency.dev/search?q={query}",
-    "query-input": "required name=query",
-  },
 };
 
 const TLDR = {

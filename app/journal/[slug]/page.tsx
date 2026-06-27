@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PUBLISHED_ARTICLES, getArticleBySlug } from "../../lib/agentCms";
+import { OG_IMAGE_URL, SITE_URL } from "../../lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       title: article.title,
       description: article.metaDescription,
-      url: `https://devcodeagency.dev/journal/${article.slug}`,
+      url: `${SITE_URL}/journal/${article.slug}`,
       publishedTime: article.date,
       tags: article.tags,
     },
@@ -53,10 +54,10 @@ export default async function JournalArticlePage({ params }: Props) {
       name: "devcodeagency",
       logo: {
         "@type": "ImageObject",
-        url: "https://devcodeagency.dev/og.png",
+        url: OG_IMAGE_URL,
       },
     },
-    mainEntityOfPage: `https://devcodeagency.dev/journal/${article.slug}`,
+    mainEntityOfPage: `${SITE_URL}/journal/${article.slug}`,
     keywords: article.tags.join(", "),
   };
 

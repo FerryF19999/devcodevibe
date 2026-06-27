@@ -1,7 +1,14 @@
-// PostHog analytics helpers for devcodeagency landing page
-// All event names and properties are typed. Keep this file synced with docs/posthog-events.md.
+// PostHog analytics helpers for devcodeagency landing page.
+// Keep this file synced with docs/posthog-events.md.
 
-import posthog from "posthog-js";
+type PostHogLike = {
+  capture: (event: string, props?: Record<string, unknown>) => void;
+  identify: (distinctId: string, props?: Record<string, unknown>) => void;
+};
+
+type WindowWithPostHog = Window & {
+  __vwcPostHog?: PostHogLike;
+};
 
 export type AnalyticsEvent =
   | "pageview"
@@ -32,7 +39,7 @@ export function capture<E extends AnalyticsEvent>(
 ): void {
   if (typeof window === "undefined") return;
   try {
-    posthog.capture(event, props);
+    (window as WindowWithPostHog).__vwcPostHog?.capture(event, props);
   } catch {
     // silently fail to avoid breaking UI
   }
@@ -41,7 +48,7 @@ export function capture<E extends AnalyticsEvent>(
 export function identify(distinctId: string, props?: Record<string, unknown>): void {
   if (typeof window === "undefined") return;
   try {
-    posthog.identify(distinctId, props);
+    (window as WindowWithPostHog).__vwcPostHog?.identify(distinctId, props);
   } catch {
     // silently fail
   }

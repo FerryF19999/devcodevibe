@@ -1,5 +1,6 @@
 import type { Lang } from "./copy";
 import publishedArticles from "../../content/articles.json";
+import { SITE_URL } from "./site";
 
 export type AgentCmsMode = "article" | "seo" | "geo" | "conversion" | "weekly";
 
@@ -280,7 +281,7 @@ export function createFallbackCmsResult(input: AgentCmsRequest): AgentCmsResult 
         "@type": "Organization",
         name: "devcodeagency",
       },
-      mainEntityOfPage: `https://devcodeagency.dev/journal/${slug}`,
+      mainEntityOfPage: `${SITE_URL}/journal/${slug}`,
       about: [req.keyword, "SEO", "GEO", "AI agent CMS"],
     },
   };

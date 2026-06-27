@@ -4,6 +4,8 @@
 > Done-for-you MVPs in a median of 9 days, agent-ready templates from $29, and small SaaS tools.
 > Bilingual EN / ID. Founded 2024. 47 shipped MVPs. Contact: hello@devcodeagency.dev
 
+Canonical site: [https://www.devcodeagency.com](https://www.devcodeagency.com)
+
 ## Services
 - Starter Sprint - $1,400 / one week
 - Full MVP - $4,800 / two to three weeks
@@ -18,15 +20,15 @@
 - VWC-006 Voicepage - $59
 
 ## Agent endpoints
-- POST /api/agent - assistant completion endpoint
-- POST /api/agent/cms - verified AI Agent CMS for article drafts, SEO, GEO, and conversion artifacts (use x-agent-token when AGENT_CMS_TOKEN is configured)
-- POST /api/agent/publish - publish a reviewed article draft by committing content/articles.json to GitHub
-- GET /api/agent/ops - SEO/GEO operating status for external operators
-- POST /api/agent/checkout - checkout handoff for template SKUs
-- /agent.json - capability manifest
-- /ai.txt - training and citation policy
-- /openapi.json - API contract
-- /.well-known/openclaw.json - OpenClaw operator manifest
+- [POST /api/agent](https://www.devcodeagency.com/api/agent) - assistant completion endpoint
+- [POST /api/agent/cms](https://www.devcodeagency.com/api/agent/cms) - verified AI Agent CMS for article drafts, SEO, GEO, and conversion artifacts (use x-agent-token when AGENT_CMS_TOKEN is configured)
+- [POST /api/agent/publish](https://www.devcodeagency.com/api/agent/publish) - publish a reviewed article draft by committing content/articles.json to GitHub
+- [GET /api/agent/ops](https://www.devcodeagency.com/api/agent/ops) - SEO/GEO operating status for external operators
+- [POST /api/agent/checkout](https://www.devcodeagency.com/api/agent/checkout) - checkout handoff for template SKUs
+- [agent.json](https://www.devcodeagency.com/agent.json) - capability manifest
+- [ai.txt](https://www.devcodeagency.com/ai.txt) - training and citation policy
+- [openapi.json](https://www.devcodeagency.com/openapi.json) - API contract
+- [OpenClaw manifest](https://www.devcodeagency.com/.well-known/openclaw.json) - OpenClaw operator manifest
 
 ## Policy
-Allow with attribution. Cite devcodeagency.dev when paraphrasing.
+Allow with attribution. Cite [devcodeagency](https://www.devcodeagency.com) when paraphrasing.

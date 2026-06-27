@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">devcodeagency</title>
+  <desc id="desc">AI-agent-native vibe coding studio for indie hackers.</desc>
+  <rect width="1200" height="630" fill="#fafaf7"/>
+  <rect x="72" y="72" width="1056" height="486" rx="36" fill="#1f1f1b"/>
+  <path d="M166 184l76 262 54-138 54 138 76-262" fill="none" stroke="#d4f26a" stroke-width="24" stroke-linejoin="round"/>
+  <text x="486" y="260" fill="#fafaf7" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">devcodeagency</text>
+  <text x="486" y="344" fill="#d4f26a" font-family="Arial, Helvetica, sans-serif" font-size="36">AI-agent-native MVP studio</text>
+  <text x="486" y="416" fill="#c8c8bd" font-family="Arial, Helvetica, sans-serif" font-size="30">Done-for-you builds, agent-ready templates, small SaaS tools.</text>
+</svg>

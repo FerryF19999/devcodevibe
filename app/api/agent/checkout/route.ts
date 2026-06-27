@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { CONTACT_EMAIL, SITE_URL } from "../../../lib/site";
 
 export const runtime = "nodejs";
 
@@ -25,8 +26,8 @@ export async function POST(req: NextRequest) {
     product: product.name,
     price: product.price,
     currency: "USD",
-    checkoutUrl: `mailto:hello@devcodeagency.dev?subject=Agent checkout ${encodeURIComponent(sku)}`,
-    returnUrl: body.returnUrl || "https://devcodeagency.dev/",
+    checkoutUrl: `mailto:${CONTACT_EMAIL}?subject=Agent checkout ${encodeURIComponent(sku)}`,
+    returnUrl: body.returnUrl || SITE_URL,
     note: "Payment and license delivery are handed off to the studio until a live payment provider is connected.",
   });
 }

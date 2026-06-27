@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /agent-cms
 
-Sitemap: https://devcodeagency.dev/sitemap.xml
+Sitemap: https://www.devcodeagency.com/sitemap.xml

@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import { PUBLISHED_ARTICLES, VERIFIED_AGENT } from "../../../lib/agentCms";
+import { SITE_URL } from "../../../lib/site";
 
 export const runtime = "nodejs";
-
-const BASE_URL = "https://devcodeagency.dev";
 
 export async function GET() {
   const latestArticle = PUBLISHED_ARTICLES[0];
@@ -30,7 +29,7 @@ export async function GET() {
         ? {
             title: latestArticle.title,
             slug: latestArticle.slug,
-            url: `${BASE_URL}/journal/${latestArticle.slug}`,
+            url: `${SITE_URL}/journal/${latestArticle.slug}`,
             date: latestArticle.date,
           }
         : null,

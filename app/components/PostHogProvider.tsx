@@ -1,13 +1,21 @@
 "use client";
 
 import { useEffect } from "react";
-import posthog from "posthog-js";
+
+type PostHogLike = {
+  __loaded?: boolean;
+  init: (token: string, options: Record<string, unknown>) => void;
+};
+
+type WindowWithPostHog = Window & {
+  __vwcPostHog?: PostHogLike;
+};
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // Already initialized? Skip.
-    if ((posthog as unknown as Record<string, unknown>).__loaded) return;
+    const w = window as WindowWithPostHog;
+    if (w.__vwcPostHog?.__loaded) return;
 
     const token = process.env.NEXT_PUBLIC_POSTHOG_KEY;
     const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
@@ -17,14 +25,25 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    posthog.init(token, {
-      api_host: host || "https://us.i.posthog.com",
-      capture_pageview: false, // manual pageview to include lang
-      capture_pageleave: true,
-      loaded: () => {
-        (posthog as unknown as Record<string, unknown>).__loaded = true;
-      },
+    let active = true;
+    void import("posthog-js").then(({ default: posthog }) => {
+      if (!active) return;
+      const client = posthog as unknown as PostHogLike;
+      w.__vwcPostHog = client;
+      client.init(token, {
+        api_host: host || "https://us.i.posthog.com",
+        capture_pageview: false,
+        capture_pageleave: true,
+        loaded: () => {
+          client.__loaded = true;
+          w.__vwcPostHog = client;
+        },
+      });
     });
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   return <>{children}</>;
