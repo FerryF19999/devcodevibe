@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { Copy, Lang } from "../lib/copy";
 import { agentComplete } from "../lib/agent";
 import { capture } from "../lib/analytics";
@@ -21,6 +21,7 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const messageId = useId();
 
   useEffect(() => {
     capture("agent_opened", { lang });
@@ -92,7 +93,7 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
               <span className="vwc-chat-dot" /> assistant.devcodeagency · {lang.toUpperCase()}
               <span className="vwc-chat-bar-r">claude-haiku</span>
             </div>
-            <div className="vwc-chat-body" ref={scrollRef}>
+            <div className="vwc-chat-body" ref={scrollRef} role="log" aria-live="polite" aria-label="Assistant conversation">
               {messages.map((m, i) => (
                 <div key={i} className={`vwc-msg vwc-msg-${m.role}`}>
                   <div className="vwc-msg-tag">
@@ -114,7 +115,7 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
             </div>
             <div className="vwc-chat-suggest">
               {t.agentSuggest.map((s, i) => (
-                <button key={i} onClick={() => send(s)} disabled={busy}>
+                <button key={i} type="button" onClick={() => send(s)} disabled={busy}>
                   {s}
                 </button>
               ))}
@@ -128,15 +129,18 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
                 send();
               }}
             >
+              <label className="sr-only" htmlFor={messageId}>
+                {lang === "en" ? "Message the devcodeagency assistant" : "Pesan untuk asisten devcodeagency"}
+              </label>
               <input
+                id={messageId}
                 name="message"
                 toolparamdescription="The user's question or instruction for the devcodeagency assistant."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={lang === "en" ? "Ask anything…" : "Tanya apa saja…"}
-                aria-label="Message the assistant"
               />
-              <button type="submit" disabled={busy} aria-label="Send">
+              <button type="submit" disabled={busy} aria-label={lang === "en" ? "Send message" : "Kirim pesan"}>
                 →
               </button>
             </form>

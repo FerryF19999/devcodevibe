@@ -14,7 +14,7 @@ export function Services({ t }: { t: Copy }) {
             <p className="vwc-service-d">{s.d}</p>
             <div className="vwc-service-foot">
               <span className="vwc-service-price">{s.price}</span>
-              <a href="#start" className="vwc-arrow">
+              <a href="#start" className="vwc-arrow" aria-label={`Start a project for ${s.t}`}>
                 →
               </a>
             </div>

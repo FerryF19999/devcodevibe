@@ -48,7 +48,11 @@ export function StartStrip({ t, lang }: { t: Copy; lang: Lang }) {
             submit();
           }}
         >
+          <label className="sr-only" htmlFor="kickoff-email">
+            {lang === "en" ? "Email address for kickoff follow-up" : "Alamat email untuk follow-up kickoff"}
+          </label>
           <input
+            id="kickoff-email"
             name="email"
             toolparamdescription="The email address where devcodeagency should send the kickoff follow-up."
             type="email"
@@ -56,7 +60,6 @@ export function StartStrip({ t, lang }: { t: Copy; lang: Lang }) {
             onChange={(e) => setEmail(e.target.value)}
             onFocus={() => capture("lead_started", { lang })}
             placeholder={lang === "en" ? "your@email" : "email@kamu"}
-            aria-label="email"
             required
           />
           <button type="submit" className="vwc-btn vwc-btn-primary" disabled={busy}>

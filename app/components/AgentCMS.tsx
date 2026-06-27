@@ -157,12 +157,13 @@ export function AgentCMS({ lang }: { lang: Lang }) {
         >
           <div className="vwc-cms-field">
             <span>{isId ? "Mode" : "Mode"}</span>
-            <div className="vwc-segments">
+            <div className="vwc-segments" role="group" aria-label={isId ? "Pilih mode agent CMS" : "Choose AI Agent CMS mode"}>
               {(Object.keys(MODE_LABELS) as AgentCmsMode[]).map((item) => (
                 <button
                   key={item}
                   type="button"
                   className={mode === item ? "on" : ""}
+                  aria-pressed={mode === item}
                   onClick={() => setMode(item)}
                 >
                   {MODE_LABELS[item][lang]}
@@ -221,10 +222,10 @@ export function AgentCMS({ lang }: { lang: Lang }) {
               {L.save}
             </button>
           </div>
-          {status && <div className="vwc-cms-status">{status}</div>}
+          {status && <div className="vwc-cms-status" role="status">{status}</div>}
         </form>
 
-        <div className="vwc-cms-output" aria-live="polite">
+        <div className="vwc-cms-output" role="region" aria-live="polite" aria-label={isId ? "Output agent CMS" : "AI Agent CMS output"}>
           {result && (
             <>
               <article className="vwc-cms-preview">

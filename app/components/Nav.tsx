@@ -24,11 +24,23 @@ export function Nav({ lang, t }: Props) {
       </div>
       <div className="vwc-nav-right">
         <div className="vwc-lang" role="group" aria-label="Language">
-          <a href="/?lang=en" aria-pressed={lang === "en"} className={lang === "en" ? "on" : ""}>
+          <a
+            href="/?lang=en"
+            hrefLang="en"
+            aria-current={lang === "en" ? "true" : undefined}
+            aria-label="Switch language to English"
+            className={lang === "en" ? "on" : ""}
+          >
             EN
           </a>
           <span aria-hidden="true">/</span>
-          <a href="/?lang=id" aria-pressed={lang === "id"} className={lang === "id" ? "on" : ""}>
+          <a
+            href="/?lang=id"
+            hrefLang="id"
+            aria-current={lang === "id" ? "true" : undefined}
+            aria-label="Ganti bahasa ke Indonesia"
+            className={lang === "id" ? "on" : ""}
+          >
             ID
           </a>
         </div>

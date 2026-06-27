@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { Copy, Lang } from "../lib/copy";
 import { agentComplete } from "../lib/agent";
 import { capture } from "../lib/analytics";
@@ -54,6 +54,8 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
   const [spec, setSpec] = useState<Spec>(DEFAULT_SPEC);
   const [activePrompt, setActivePrompt] = useState(HERO_EXAMPLES[lang][0]);
   const streamTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const promptId = useId();
+  const promptHintId = useId();
 
   useEffect(() => {
     const code = specToCode(DEFAULT_SPEC);
@@ -115,12 +117,15 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
             }}
           >
             <div className="vwc-prompt-head">
-              <span className="vwc-prompt-tag">prompt</span>
-              <span className="vwc-prompt-hint">
+              <label className="vwc-prompt-tag" htmlFor={promptId}>
+                prompt
+              </label>
+              <span className="vwc-prompt-hint" id={promptHintId}>
                 {lang === "en" ? "describe a site, watch it build" : "deskripsikan site, lihat dibangun"}
               </span>
             </div>
             <textarea
+              id={promptId}
               name="prompt"
               toolparamdescription="A short description of the product, business, or website the user wants to generate."
               value={input}
@@ -133,7 +138,7 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
               }}
               rows={2}
               placeholder={lang === "en" ? "build a landing page for…" : "buat landing page untuk…"}
-              aria-label="prompt"
+              aria-describedby={promptHintId}
             />
             <div className="vwc-prompt-foot">
               <div className="vwc-prompt-chips">
@@ -208,6 +213,7 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
               </pre>
               <div
                 className="vwc-preview-strip"
+                aria-hidden="true"
                 style={{
                   opacity: phase === "ready" || phase === "error" ? 1 : 0.4,
                   transition: "opacity .3s",

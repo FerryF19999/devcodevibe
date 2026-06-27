@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import type { Lang } from "../lib/copy";
 import { agentComplete } from "../lib/agent";
 import { SectionLabel } from "./shared";
@@ -46,6 +46,9 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
   const [msg, setMsg] = useState("");
   const [log, setLog] = useState<LogEntry[]>([]);
   const [busy, setBusy] = useState(false);
+  const sellerDialogTitleId = useId();
+  const sellerMessageId = useId();
+  const inboxTitleId = useId();
 
   function pushNotif(n: Omit<Notif, "id" | "t">) {
     setNotifs((xs) => [{ ...n, id: Date.now() + Math.random(), t: new Date() }, ...xs].slice(0, 8));
@@ -143,7 +146,9 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
           <p className="vwc-lead" style={{ marginTop: 20 }}>{L.sub}</p>
         </div>
         <button
+          type="button"
           onClick={() => setShowInbox(true)}
+          aria-label={`${L.inbox}: ${notifs.length} ${lang === "en" ? "notifications" : "notifikasi"}`}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -159,6 +164,7 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
           }}
         >
           <span
+            aria-hidden="true"
             style={{
               width: 8,
               height: 8,
@@ -266,6 +272,8 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
                 </div>
               </div>
               <button
+                type="button"
+                aria-label={`${L.contact}: ${s.name}`}
                 onClick={() => {
                   setSelected(s);
                   setLog([]);
@@ -301,6 +309,9 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
 
       {selected && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={sellerDialogTitleId}
           onClick={(e) => {
             if (e.target === e.currentTarget) setSelected(null);
           }}
@@ -347,7 +358,7 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
                 {selected.avatar}
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontWeight: 500, fontSize: 14 }}>
+                <div id={sellerDialogTitleId} style={{ fontWeight: 500, fontSize: 14 }}>
                   {selected.name} <span style={{ color: "var(--fg-mute)", fontWeight: 400 }}>· {selected.handle}</span>
                 </div>
                 <div style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--fg-mute)" }}>
@@ -362,6 +373,8 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
                 </div>
               </div>
               <button
+                type="button"
+                aria-label={lang === "en" ? "Close contact dialog" : "Tutup dialog kontak"}
                 onClick={() => setSelected(null)}
                 style={{ background: "none", border: "none", fontSize: 20, color: "var(--fg-mute)", cursor: "pointer" }}
               >
@@ -386,6 +399,9 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
             </div>
 
             <div
+              role="log"
+              aria-live="polite"
+              aria-label={lang === "en" ? "Seller agent conversation" : "Percakapan agent seller"}
               style={{
                 flex: 1,
                 overflowY: "auto",
@@ -443,6 +459,7 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
               {L.suggest.map((s, i) => (
                 <button
                   key={i}
+                  type="button"
                   onClick={() => contactAgent(selected, s)}
                   disabled={busy}
                   style={{
@@ -471,7 +488,11 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
               }}
               style={{ display: "flex", gap: 8, padding: "12px 20px 18px", borderTop: "1px solid var(--line)" }}
             >
+              <label className="sr-only" htmlFor={sellerMessageId}>
+                {lang === "en" ? `Message ${selected.name}'s agent` : `Pesan untuk agent ${selected.name}`}
+              </label>
               <input
+                id={sellerMessageId}
                 name="message"
                 toolparamdescription="The message or question to send to the selected template seller agent."
                 value={msg}
@@ -490,6 +511,7 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
               <button
                 type="submit"
                 disabled={busy}
+                aria-label={lang === "en" ? "Send message to seller agent" : "Kirim pesan ke agent seller"}
                 style={{
                   width: 44,
                   height: 44,
@@ -512,6 +534,9 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
 
       {showInbox && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={inboxTitleId}
           onClick={(e) => {
             if (e.target === e.currentTarget) setShowInbox(false);
           }}
@@ -546,7 +571,7 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
               }}
             >
               <div>
-                <div style={{ fontFamily: "var(--serif)", fontSize: 22 }}>{L.inbox}</div>
+                <div id={inboxTitleId} style={{ fontFamily: "var(--serif)", fontSize: 22 }}>{L.inbox}</div>
                 <div
                   style={{
                     fontFamily: "var(--mono)",
@@ -558,18 +583,20 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
                     marginTop: 2,
                   }}
                 >
-                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 8px var(--accent)" }} />
+                  <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent)", boxShadow: "0 0 8px var(--accent)" }} />
                   {L.live}
                 </div>
               </div>
               <button
+                type="button"
+                aria-label={lang === "en" ? "Close owner inbox" : "Tutup inbox owner"}
                 onClick={() => setShowInbox(false)}
                 style={{ background: "none", border: "none", fontSize: 22, color: "var(--fg-mute)", cursor: "pointer" }}
               >
                 ×
               </button>
             </div>
-            <div style={{ flex: 1, overflowY: "auto", padding: "8px 0" }}>
+            <div style={{ flex: 1, overflowY: "auto", padding: "8px 0" }} role="log" aria-live="polite" aria-label={L.inbox}>
               {notifs.length === 0 && (
                 <div style={{ padding: 40, textAlign: "center", color: "var(--fg-mute)", fontSize: 14 }}>
                   {lang === "en" ? "Waiting for activity…" : "Menunggu aktivitas…"}
