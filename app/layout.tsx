@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
     languages: {
-      en: "/?lang=en",
-      id: "/?lang=id",
+      en: "/",
+      id: "/id",
       "x-default": "/",
     },
   },

@@ -19,7 +19,7 @@ export function App({ lang }: { lang: Lang }) {
   const t = COPY[lang];
 
   return (
-    <div className="vwc-app">
+    <div className="vwc-app" lang={lang}>
       <Nav lang={lang} t={t} />
       <main id="main-content">
         <Hero t={t} lang={lang} />

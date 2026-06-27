@@ -25,7 +25,7 @@ export function Nav({ lang, t }: Props) {
       <div className="vwc-nav-right">
         <div className="vwc-lang" role="group" aria-label="Language">
           <a
-            href="/?lang=en"
+            href="/"
             hrefLang="en"
             aria-label="Switch language to English"
             className={lang === "en" ? "on" : ""}
@@ -34,7 +34,7 @@ export function Nav({ lang, t }: Props) {
           </a>
           <span aria-hidden="true">/</span>
           <a
-            href="/?lang=id"
+            href="/id"
             hrefLang="id"
             aria-label="Ganti bahasa ke Indonesia"
             className={lang === "id" ? "on" : ""}
