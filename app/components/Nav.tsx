@@ -1,11 +1,8 @@
-"use client";
-
-import { capture } from "../lib/analytics";
 import type { Copy, Lang } from "../lib/copy";
 
-type Props = { lang: Lang; setLang: (l: Lang) => void; t: Copy };
+type Props = { lang: Lang; t: Copy };
 
-export function Nav({ lang, setLang, t }: Props) {
+export function Nav({ lang, t }: Props) {
   return (
     <nav className="vwc-nav" aria-label="Primary">
       <a href="#top" className="vwc-logo" aria-label="devcodeagency home">
@@ -17,26 +14,26 @@ export function Nav({ lang, setLang, t }: Props) {
         <span className="vwc-logo-text">devcodeagency</span>
       </a>
       <div className="vwc-nav-links">
-        <a href="#services" onClick={() => capture("cta_clicked", { element: "nav", label: "Services", href: "#services", lang })}>{t.nav.services}</a>
-        <a href="#marketplace" onClick={() => capture("cta_clicked", { element: "nav", label: "Marketplace", href: "#marketplace", lang })}>{t.nav.marketplace}</a>
-        <a href="#tools" onClick={() => capture("cta_clicked", { element: "nav", label: "Tools", href: "#tools", lang })}>{t.nav.tools}</a>
-        <a href="#pricing" onClick={() => capture("cta_clicked", { element: "nav", label: "Pricing", href: "#pricing", lang })}>{t.nav.pricing}</a>
-        <a href="#cases" onClick={() => capture("cta_clicked", { element: "nav", label: "Cases", href: "#cases", lang })}>{t.nav.cases}</a>
-        <a href="#faq" onClick={() => capture("cta_clicked", { element: "nav", label: "FAQ", href: "#faq", lang })}>{t.nav.faq}</a>
-        <a href="#blog" onClick={() => capture("cta_clicked", { element: "nav", label: "Blog", href: "#blog", lang })}>{t.nav.blog}</a>
+        <a href="#services">{t.nav.services}</a>
+        <a href="#marketplace">{t.nav.marketplace}</a>
+        <a href="#tools">{t.nav.tools}</a>
+        <a href="#pricing">{t.nav.pricing}</a>
+        <a href="#cases">{t.nav.cases}</a>
+        <a href="#faq">{t.nav.faq}</a>
+        <a href="#blog">{t.nav.blog}</a>
       </div>
       <div className="vwc-nav-right">
         <div className="vwc-lang" role="group" aria-label="Language">
-          <button onClick={() => { capture("language_switched", { from: lang, to: "en" }); setLang("en"); }} aria-pressed={lang === "en"} className={lang === "en" ? "on" : ""}>
+          <a href="/?lang=en" aria-pressed={lang === "en"} className={lang === "en" ? "on" : ""}>
             EN
-          </button>
+          </a>
           <span aria-hidden="true">/</span>
-          <button onClick={() => { capture("language_switched", { from: lang, to: "id" }); setLang("id"); }} aria-pressed={lang === "id"} className={lang === "id" ? "on" : ""}>
+          <a href="/?lang=id" aria-pressed={lang === "id"} className={lang === "id" ? "on" : ""}>
             ID
-          </button>
+          </a>
         </div>
-        <a href="#start" className="vwc-btn vwc-btn-sm" onClick={() => capture("cta_clicked", { element: "nav", label: "Start", href: "#start", lang })}>
-          {t.cta} <span aria-hidden="true">→</span>
+        <a href="#start" className="vwc-btn vwc-btn-sm">
+          {t.cta} <span aria-hidden="true">â†’</span>
         </a>
       </div>
     </nav>

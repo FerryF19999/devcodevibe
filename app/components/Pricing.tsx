@@ -1,29 +1,9 @@
-import { useEffect, useRef } from "react";
 import type { Copy, Lang } from "../lib/copy";
-import { capture } from "../lib/analytics";
 import { SectionLabel } from "./shared";
 
 export function Pricing({ t, lang }: { t: Copy; lang: Lang }) {
-  const ref = useRef<HTMLElement | null>(null);
-  useEffect(() => {
-    if (!ref.current) return;
-    const el = ref.current;
-    let fired = false;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !fired) {
-          fired = true;
-          capture("pricing_viewed", { lang });
-        }
-      },
-      { threshold: 0.5 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [lang]);
-
   return (
-    <section ref={ref} className="vwc-section vwc-section-tinted" id="pricing">
+    <section className="vwc-section vwc-section-tinted" id="pricing">
       <SectionLabel>{t.sectionTagline.pricing}</SectionLabel>
       <h2 className="vwc-h2">{t.pricingH}</h2>
       <div className="vwc-pricing-grid">
@@ -43,8 +23,8 @@ export function Pricing({ t, lang }: { t: Copy; lang: Lang }) {
                 </li>
               ))}
             </ul>
-            <a href="#start" className={`vwc-btn ${p.featured ? "vwc-btn-primary" : "vwc-btn-ghost"} vwc-btn-block`} onClick={() => capture("cta_clicked", { element: "pricing_tier", label: p.t, href: "#start", lang })}>
-              {t.cta} <span aria-hidden="true">→</span>
+            <a href="#start" className={`vwc-btn ${p.featured ? "vwc-btn-primary" : "vwc-btn-ghost"} vwc-btn-block`}>
+              {t.cta} <span aria-hidden="true">â†’</span>
             </a>
           </article>
         ))}
