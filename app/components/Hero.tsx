@@ -49,8 +49,8 @@ type Phase = "idle" | "streaming" | "ready" | "error";
 
 export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
   const [input, setInput] = useState(HERO_EXAMPLES[lang][0]);
-  const [phase, setPhase] = useState<Phase>("idle");
-  const [streamed, setStreamed] = useState("");
+  const [phase, setPhase] = useState<Phase>("ready");
+  const [streamed, setStreamed] = useState(() => specToCode(DEFAULT_SPEC));
   const [spec, setSpec] = useState<Spec>(DEFAULT_SPEC);
   const [activePrompt, setActivePrompt] = useState(HERO_EXAMPLES[lang][0]);
   const streamTimer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -58,9 +58,6 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
   const promptHintId = useId();
 
   useEffect(() => {
-    const code = specToCode(DEFAULT_SPEC);
-    streamCode(code, setStreamed, streamTimer, () => setPhase("ready"));
-    setPhase("streaming");
     return () => {
       if (streamTimer.current) clearInterval(streamTimer.current);
     };

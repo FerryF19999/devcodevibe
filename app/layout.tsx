@@ -9,21 +9,21 @@ const geist = Geist({
   subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "500", "600"],
   variable: "--sans",
-  display: "swap",
+  display: "optional",
 });
 
 const serif = Instrument_Serif({
   subsets: ["latin", "latin-ext"],
   weight: "400",
   variable: "--serif",
-  display: "swap",
+  display: "optional",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500"],
   variable: "--mono",
-  display: "swap",
+  display: "optional",
 });
 
 export const metadata: Metadata = {
