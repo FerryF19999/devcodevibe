@@ -290,7 +290,7 @@ function LivePreview({ spec }: { spec: Spec }) {
       marginBottom: "14px",
     },
     brand: { fontFamily: "var(--mono)", fontSize: "10px", fontWeight: 600, letterSpacing: "0.06em" },
-    links: { display: "flex", gap: "10px", fontSize: "9px", color: "rgba(0,0,0,0.5)" },
+    links: { display: "flex", gap: "10px", fontSize: "9px", color: "rgba(26,26,23,0.82)" },
     chip: {
       background: spec.accent,
       color: spec.ink,
