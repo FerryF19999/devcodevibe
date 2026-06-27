@@ -106,6 +106,8 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
 
           <form
             className="vwc-prompt-box"
+            toolname="generate_landing_page_preview"
+            tooldescription="Generates an agent-ready landing page preview from a product or website prompt."
             onSubmit={(e) => {
               e.preventDefault();
               capture("cta_clicked", { element: "hero_prompt_submit", label: input.slice(0, 40), lang });
@@ -119,6 +121,8 @@ export function Hero({ t, lang }: { t: Copy; lang: Lang }) {
               </span>
             </div>
             <textarea
+              name="prompt"
+              toolparamdescription="A short description of the product, business, or website the user wants to generate."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {

@@ -463,6 +463,8 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
             </div>
 
             <form
+              toolname="contact_template_seller_agent"
+              tooldescription="Sends a message to a template seller's agent about purchasing, setup, or implementation help."
               onSubmit={(e) => {
                 e.preventDefault();
                 contactAgent(selected);
@@ -470,6 +472,8 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
               style={{ display: "flex", gap: 8, padding: "12px 20px 18px", borderTop: "1px solid var(--line)" }}
             >
               <input
+                name="message"
+                toolparamdescription="The message or question to send to the selected template seller agent."
                 value={msg}
                 onChange={(e) => setMsg(e.target.value)}
                 placeholder={L.placeholder}

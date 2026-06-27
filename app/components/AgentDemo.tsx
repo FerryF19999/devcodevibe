@@ -121,12 +121,16 @@ export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
             </div>
             <form
               className="vwc-chat-input"
+              toolname="ask_devcodeagency_assistant"
+              tooldescription="Sends a question to the devcodeagency assistant about pricing, timelines, templates, or kickoff planning."
               onSubmit={(e) => {
                 e.preventDefault();
                 send();
               }}
             >
               <input
+                name="message"
+                toolparamdescription="The user's question or instruction for the devcodeagency assistant."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={lang === "en" ? "Ask anything…" : "Tanya apa saja…"}

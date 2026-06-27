@@ -41,12 +41,16 @@ export function StartStrip({ t, lang }: { t: Copy; lang: Lang }) {
         </div>
         <form
           className="vwc-start-form"
+          toolname="request_kickoff_call"
+          tooldescription="Submits an email address so devcodeagency can follow up about a kickoff call."
           onSubmit={(e) => {
             e.preventDefault();
             submit();
           }}
         >
           <input
+            name="email"
+            toolparamdescription="The email address where devcodeagency should send the kickoff follow-up."
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
