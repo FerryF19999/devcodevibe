@@ -1,0 +1,41 @@
+/* Journal */
+.vwc-article-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px var(--pad) 96px;
+}
+.vwc-article-hero { padding: 36px 0 42px; border-bottom: 1px solid var(--line); }
+.vwc-article-hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 82px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 22px 0 18px;
+}
+.vwc-article-hero p { color: var(--fg-soft); font-size: 18px; max-width: 62ch; margin: 0; }
+.vwc-journal-list { display: grid; grid-template-columns: 1fr; gap: 14px; padding-top: 28px; }
+.vwc-journal-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px;
+  background: var(--bg);
+}
+.vwc-journal-card h2 { font-family: var(--serif); font-size: 30px; font-weight: 400; line-height: 1.08; margin: 14px 0 10px; }
+.vwc-journal-card p { margin: 0; color: var(--fg-soft); }
+.vwc-article-body { padding-top: 34px; }
+.vwc-article-body h2 { font-family: var(--serif); font-size: 34px; font-weight: 400; margin: 34px 0 12px; }
+.vwc-article-body p { color: var(--fg-soft); font-size: 17px; line-height: 1.72; max-width: 70ch; }
+.vwc-article-faq { margin-top: 42px; border-top: 1px solid var(--line); }
+.vwc-article-faq details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+.vwc-article-faq summary { cursor: pointer; font-family: var(--serif); font-size: 22px; }
+.vwc-article-faq p { margin-bottom: 0; }
+.vwc-cms-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.vwc-cms-tags span {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--fg-soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 8px;
+}
