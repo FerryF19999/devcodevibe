@@ -24,7 +24,7 @@ export function Pricing({ t, lang }: { t: Copy; lang: Lang }) {
               ))}
             </ul>
             <a href="#start" className={`vwc-btn ${p.featured ? "vwc-btn-primary" : "vwc-btn-ghost"} vwc-btn-block`}>
-              {t.cta} <span aria-hidden="true">â†’</span>
+              {t.cta} <span aria-hidden="true">&rarr;</span>
             </a>
           </article>
         ))}

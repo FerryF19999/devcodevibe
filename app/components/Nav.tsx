@@ -43,7 +43,7 @@ export function Nav({ lang, t }: Props) {
           </a>
         </div>
         <a href="#start" className="vwc-btn vwc-btn-sm">
-          {t.cta} <span aria-hidden="true">â†’</span>
+          {t.cta} <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
     </nav>
