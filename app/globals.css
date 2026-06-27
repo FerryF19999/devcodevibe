@@ -4,8 +4,8 @@
   --bg-tint: oklch(0.95 0.008 80);
   --bg-dark: oklch(0.18 0.01 80);
   --fg: oklch(0.18 0.01 80);
-  --fg-soft: oklch(0.42 0.01 80);
-  --fg-mute: oklch(0.58 0.008 80);
+  --fg-soft: oklch(0.34 0.01 80);
+  --fg-mute: oklch(0.38 0.008 80);
   --line: oklch(0.86 0.008 80);
   --line-strong: oklch(0.72 0.008 80);
   --accent: oklch(0.85 0.18 130);
@@ -52,7 +52,7 @@ img, svg { display: block; max-width: 100%; }
   text-transform: uppercase;
   margin-bottom: 28px;
 }
-.vwc-section-dark .vwc-sec-label { color: oklch(0.65 0.01 80); }
+.vwc-section-dark .vwc-sec-label { color: oklch(0.78 0.01 80); }
 
 .vwc-h1 {
   font-family: var(--serif);
@@ -216,8 +216,8 @@ img, svg { display: block; max-width: 100%; }
 .vwc-codepanel-bar { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-bottom: 1px solid oklch(1 0 0 / 0.06); font-size: 11px; }
 .vwc-cb-dots { display: flex; gap: 6px; }
 .vwc-cb-dots i { width: 10px; height: 10px; border-radius: 50%; background: oklch(1 0 0 / 0.12); display: block; }
-.vwc-cb-title { color: oklch(0.7 0.01 80); flex: 1; letter-spacing: 0.04em; }
-.vwc-cb-status { display: inline-flex; align-items: center; gap: 6px; color: oklch(0.7 0.01 80); font-size: 10px; letter-spacing: 0.12em; }
+.vwc-cb-title { color: oklch(0.76 0.01 80); flex: 1; letter-spacing: 0.04em; }
+.vwc-cb-status { display: inline-flex; align-items: center; gap: 6px; color: oklch(0.76 0.01 80); font-size: 10px; letter-spacing: 0.12em; }
 .vwc-cb-status.on { color: var(--accent); }
 .vwc-pulse { width: 6px; height: 6px; background: currentColor; border-radius: 50%; animation: vwc-pulse 1.4s ease-in-out infinite; }
 @keyframes vwc-pulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
@@ -243,7 +243,7 @@ img, svg { display: block; max-width: 100%; }
 .tk-str { color: oklch(0.82 0.13 130); }
 .tk-tag { color: oklch(0.78 0.13 220); }
 .tk-cmt { color: oklch(0.55 0.02 80); font-style: italic; }
-.tk-brc { color: oklch(0.7 0.02 80); }
+.tk-brc { color: oklch(0.78 0.02 80); }
 .vwc-caret { color: var(--accent); animation: vwc-blink 1s steps(1) infinite; }
 @keyframes vwc-blink { 50% { opacity: 0; } }
 
@@ -378,7 +378,7 @@ img, svg { display: block; max-width: 100%; }
 @media (max-width: 880px) { .vwc-voices { grid-template-columns: 1fr; } }
 .vwc-voice { margin: 0; }
 .vwc-quote { font-family: var(--serif); font-size: 22px; line-height: 1.3; color: oklch(0.94 0.005 80); margin: 0 0 16px; }
-.vwc-voice figcaption { font-family: var(--mono); font-size: 12px; color: oklch(0.65 0.01 80); }
+.vwc-voice figcaption { font-family: var(--mono); font-size: 12px; color: oklch(0.78 0.01 80); }
 
 /* ============ LLMs callout ============ */
 .vwc-llms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
@@ -422,13 +422,13 @@ img, svg { display: block; max-width: 100%; }
 }
 @media (max-width: 880px) { .vwc-start-inner { grid-template-columns: 1fr; } }
 .vwc-start .vwc-h2 { margin: 16px 0 0; max-width: 18ch; }
-.vwc-start .vwc-sec-label { color: oklch(0.7 0.01 80); margin-bottom: 0; }
+.vwc-start .vwc-sec-label { color: oklch(0.78 0.01 80); margin-bottom: 0; }
 .vwc-start-form { display: flex; gap: 8px; }
 .vwc-start-form input {
   flex: 1; padding: 16px 20px; background: transparent; border: 1px solid oklch(1 0 0 / 0.2); border-radius: 999px;
   color: oklch(0.96 0.005 80); font: inherit;
 }
-.vwc-start-form input::placeholder { color: oklch(0.6 0.01 80); }
+.vwc-start-form input::placeholder { color: oklch(0.78 0.01 80); }
 .vwc-start-form input:focus { outline: none; border-color: var(--accent); }
 
 /* ============ Footer ============ */
@@ -440,7 +440,7 @@ img, svg { display: block; max-width: 100%; }
 .vwc-footer-marks { display: flex; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--fg-mute); }
 .vwc-footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 @media (max-width: 640px) { .vwc-footer-cols { grid-template-columns: repeat(2, 1fr); } }
-.vwc-footer-col h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--fg-mute); text-transform: uppercase; margin: 0 0 14px; font-weight: 500; }
+.vwc-footer-col h2 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--fg-mute); text-transform: uppercase; margin: 0 0 14px; font-weight: 500; }
 .vwc-footer-col ul { list-style: none; padding: 0; margin: 0; }
 .vwc-footer-col li { margin-bottom: 8px; }
 .vwc-footer-col a { font-size: 14px; color: var(--fg-soft); }

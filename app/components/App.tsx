@@ -81,19 +81,21 @@ export function App() {
   return (
     <div className="vwc-app">
       <Nav lang={lang} setLang={setLang} t={t} />
-      <Hero t={t} lang={lang} />
-      <Services t={t} />
-      <AgentDemo t={t} lang={lang} />
-      <Marketplace t={t} lang={lang} />
-      <AgentMarketplace lang={lang} />
-      <Tools t={t} />
-      <Pricing t={t} lang={lang} />
-      <Cases t={t} />
-      <Voices t={t} />
-      <LlmsCallout t={t} lang={lang} />
-      <FAQ t={t} />
-      <Blog t={t} lang={lang} />
-      <StartStrip t={t} lang={lang} />
+      <main id="main-content">
+        <Hero t={t} lang={lang} />
+        <Services t={t} />
+        <AgentDemo t={t} lang={lang} />
+        <Marketplace t={t} lang={lang} />
+        <AgentMarketplace lang={lang} />
+        <Tools t={t} />
+        <Pricing t={t} lang={lang} />
+        <Cases t={t} />
+        <Voices t={t} />
+        <LlmsCallout t={t} lang={lang} />
+        <FAQ t={t} />
+        <Blog t={t} lang={lang} />
+        <StartStrip t={t} lang={lang} />
+      </main>
       <Footer t={t} lang={lang} />
     </div>
   );

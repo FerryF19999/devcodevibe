@@ -49,7 +49,7 @@ export function Footer({ t, lang }: { t: Copy; lang: Lang }) {
         <div className="vwc-footer-cols">
           {t.footerCols.map((c, i) => (
             <div key={i} className="vwc-footer-col">
-              <h4>{c.h}</h4>
+              <h2>{c.h}</h2>
               <ul>
                 {c.l.map((li, j) => (
                   <li key={j}>
