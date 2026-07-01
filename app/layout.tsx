@@ -80,7 +80,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
       <PostHogProvider>
         <div className="sr-only">
-          <h1>devcodeagency | AI-agent-native vibe coding studio</h1>
+          <p>
+            <strong>devcodeagency | AI-agent-native vibe coding studio</strong>
+          </p>
           <p>
             Bilingual studio for indie hackers. Done-for-you MVPs in a median of 9 days, agent-ready templates from $29,
             and small SaaS tools. Pricing: Starter Sprint $1,400, Full MVP $4,800, Async Retainer $3,200 per month.

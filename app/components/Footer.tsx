@@ -1,15 +1,8 @@
 import type { Copy, Lang } from "../lib/copy";
 
 const FOOTER_HREFS: Record<string, string> = {
-  Services: "#services",
-  Layanan: "#services",
   Marketplace: "#marketplace",
   Tools: "#tools",
-  Pricing: "#pricing",
-  Harga: "#pricing",
-  "Case studies": "#cases",
-  Testimonials: "#voices",
-  Testimoni: "#voices",
   Journal: "/journal",
   Jurnal: "/journal",
   Changelog: "/journal",
@@ -18,11 +11,40 @@ const FOOTER_HREFS: Record<string, string> = {
   "ai.txt": "/ai.txt",
   "/api/agent": "/openapi.json",
   "hello@devcodeagency.dev": "mailto:hello@devcodeagency.dev",
-  "Book a kickoff": "#start",
-  "Book kickoff": "#start",
-  "EN / ID": "#top",
-  Remote: "#top",
 };
+
+function homeHref(lang: Lang, hash = "") {
+  const base = lang === "id" ? "/id" : "/";
+  return hash ? `${base}${hash}` : base;
+}
+
+function footerHref(label: string, lang: Lang) {
+  const sectionHrefs: Record<string, string> = {
+    Services: "#services",
+    Layanan: "#services",
+    Marketplace: "#marketplace",
+    Tools: "#tools",
+    Pricing: "#pricing",
+    Harga: "#pricing",
+    Testimonials: "#voices",
+    Testimoni: "#voices",
+    "Book a kickoff": "#start",
+    "Book kickoff": "#start",
+    "EN / ID": "#top",
+    Remote: "#top",
+  };
+
+  if (label === "Case studies") {
+    return lang === "id" ? "/id/work" : "/work";
+  }
+
+  const hash = sectionHrefs[label];
+  if (hash) {
+    return homeHref(lang, hash);
+  }
+
+  return FOOTER_HREFS[label] ?? homeHref(lang);
+}
 
 export function Footer({ t, lang }: { t: Copy; lang: Lang }) {
   return (
@@ -40,9 +62,9 @@ export function Footer({ t, lang }: { t: Copy; lang: Lang }) {
           <p>{t.footerTag}</p>
           <div className="vwc-footer-marks">
             <span>EN / ID</span>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true">&middot;</span>
             <span>Remote</span>
-            <span aria-hidden="true">·</span>
+            <span aria-hidden="true">&middot;</span>
             <span>Est. 2024</span>
           </div>
         </div>
@@ -53,7 +75,7 @@ export function Footer({ t, lang }: { t: Copy; lang: Lang }) {
               <ul>
                 {c.l.map((li, j) => (
                   <li key={j}>
-                    <a href={FOOTER_HREFS[li] ?? "#top"}>{li}</a>
+                    <a href={footerHref(li, lang)}>{li}</a>
                   </li>
                 ))}
               </ul>
@@ -63,7 +85,7 @@ export function Footer({ t, lang }: { t: Copy; lang: Lang }) {
       </div>
       <div className="vwc-footer-bottom">
         <span>
-          © 2026 devcodeagency.{" "}
+          &copy; 2026 devcodeagency.{" "}
           {lang === "en" ? "A studio for indie hackers." : "Studio untuk indie hacker."}
         </span>
         <span className="vwc-footer-files">

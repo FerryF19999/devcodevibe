@@ -375,6 +375,109 @@ img, svg { display: block; max-width: 100%; }
   .vwc-case-y, .vwc-case-tag { display: none; }
 }
 
+/* ============ Work page ============ */
+.vwc-work-hero {
+  padding-top: clamp(54px, 5rem, 88px);
+  padding-bottom: clamp(44px, 4rem, 72px);
+}
+.vwc-work-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 48px;
+  align-items: end;
+}
+.vwc-work-head .vwc-h1 {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(52px, 5.5rem, 92px);
+  letter-spacing: 0;
+}
+.vwc-work-head .vwc-lead {
+  margin: 0 0 10px;
+}
+.vwc-work-list {
+  padding-top: 0;
+}
+.vwc-cases-detailed {
+  border-top-color: var(--line-strong);
+}
+.vwc-case-row-detailed {
+  grid-template-columns: 72px 1.2fr 2fr 1fr 32px;
+  gap: 28px;
+  padding: 36px 0;
+}
+.vwc-case-row-detailed:hover {
+  padding-left: 0;
+}
+.vwc-case-main {
+  min-width: 0;
+}
+.vwc-case-main .vwc-case-c {
+  margin: 0 0 10px;
+  line-height: 1.05;
+  font-weight: 400;
+}
+.vwc-case-main p,
+.vwc-case-row-detailed .vwc-case-d span {
+  display: block;
+  margin: 0;
+  color: var(--fg-soft);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.vwc-case-row-detailed .vwc-case-d {
+  display: grid;
+  gap: 8px;
+}
+.vwc-case-row-detailed .vwc-case-d strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+.vwc-work-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-top: 28px;
+}
+.vwc-work-note p {
+  margin: 0;
+  color: var(--fg-soft);
+  max-width: 54ch;
+}
+@media (max-width: 940px) {
+  .vwc-work-head {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .vwc-case-row-detailed {
+    grid-template-columns: 1fr 32px;
+    gap: 12px;
+    padding: 26px 0;
+  }
+  .vwc-case-row-detailed .vwc-case-main,
+  .vwc-case-row-detailed .vwc-case-d {
+    grid-column: 1 / 2;
+  }
+  .vwc-case-row-detailed .vwc-case-link {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    align-self: start;
+  }
+}
+@media (max-width: 640px) {
+  .vwc-work-head .vwc-h1 {
+    font-size: clamp(42px, 4rem, 56px);
+  }
+  .vwc-work-note {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .vwc-work-note .vwc-btn {
+    justify-content: center;
+  }
+}
+
 /* ============ Voices ============ */
 .vwc-voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 @media (max-width: 880px) { .vwc-voices { grid-template-columns: 1fr; } }
