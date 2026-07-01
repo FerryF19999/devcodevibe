@@ -95,6 +95,56 @@ const WORK_DETAILS = {
       ],
     },
     {
+      slug: "mybalitour-page-speed-seo",
+      scope: "Page speed optimization, SEO on-page setup, meta tags, keyword optimization, image optimization, and mobile responsiveness",
+      result: "Prepared a faster, cleaner SEO foundation for an international Bali tour and travel audience.",
+      role: "Page Speed & On-Page SEO Specialist",
+      timeline: "Optimization sprint",
+      stack: ["Core Web Vitals", "On-Page SEO", "Meta Tags", "Image Optimization", "Mobile Responsiveness"],
+      challenge:
+        "mybalitour.com needed faster loading and clearer on-page SEO foundations for international travelers researching Bali tours.",
+      approach: [
+        "Improved Core Web Vitals with page speed, image, and mobile responsiveness optimization.",
+        "Set up on-page SEO foundations including meta tags, keyword targeting, and cleaner page structure.",
+        "Aligned the technical optimization with a travel search audience that expects fast mobile browsing.",
+      ],
+      outcomes: [
+        "Created a more SEO-ready foundation for tour and travel pages.",
+        "Improved page experience with image optimization and mobile responsiveness work.",
+        "Prepared the site for stronger organic acquisition from international travel searches.",
+      ],
+      metrics: [
+        { label: "Client", value: "Travel" },
+        { label: "Location", value: "Bali" },
+        { label: "Focus", value: "SEO + Speed" },
+      ],
+    },
+    {
+      slug: "pucorooftop-page-speed",
+      scope: "Page speed optimization, Core Web Vitals, image compression, lazy loading, CSS/JS minification, server response time, and mobile responsiveness",
+      result: "Optimized technical performance for a Canggu co-working, eatery, and co-living brand.",
+      role: "Technical Web Optimization",
+      timeline: "Optimization sprint",
+      stack: ["Core Web Vitals", "Image Compression", "Lazy Loading", "CSS/JS Minification", "Server Response Time"],
+      challenge:
+        "pucorooftop.com needed a faster browsing experience for workspace, eatery, and co-living visitors in Canggu.",
+      approach: [
+        "Compressed images and implemented lazy loading to reduce page weight.",
+        "Minified CSS/JS and improved server response time to support faster loading.",
+        "Checked mobile responsiveness so the site stayed usable for on-the-go local and travel audiences.",
+      ],
+      outcomes: [
+        "Improved the technical performance baseline for a Canggu workspace brand.",
+        "Reduced avoidable asset and rendering overhead through compression, lazy loading, and minification.",
+        "Strengthened UX foundations for mobile visitors evaluating the venue.",
+      ],
+      metrics: [
+        { label: "Client", value: "Workspace" },
+        { label: "Location", value: "Canggu" },
+        { label: "Focus", value: "Page Speed" },
+      ],
+    },
+    {
       slug: "page-speed-optimization",
       scope: "Core Web Vitals, image compression, lazy loading, CSS/JS minification, server response time, and mobile responsiveness",
       result: "Optimized multiple websites including mybalitour.com, pucorooftop.com, and devcodeagency.com for faster UX and stronger SEO.",
@@ -194,6 +244,56 @@ const WORK_DETAILS = {
         { label: "Ranking", value: "#1" },
         { label: "Booking", value: "150+/bln" },
         { label: "Sources", value: "3" },
+      ],
+    },
+    {
+      slug: "mybalitour-page-speed-seo",
+      scope: "Page speed optimization, setup SEO on-page, meta tags, keyword optimization, image optimization, dan mobile responsiveness",
+      result: "Menyiapkan fondasi SEO yang lebih cepat dan rapi untuk audience tour & travel Bali internasional.",
+      role: "Page Speed & On-Page SEO Specialist",
+      timeline: "Sprint optimasi",
+      stack: ["Core Web Vitals", "On-Page SEO", "Meta Tags", "Image Optimization", "Mobile Responsiveness"],
+      challenge:
+        "mybalitour.com butuh loading lebih cepat dan fondasi SEO on-page yang lebih jelas untuk wisatawan internasional yang mencari tour Bali.",
+      approach: [
+        "Meningkatkan Core Web Vitals lewat optimasi page speed, image, dan mobile responsiveness.",
+        "Menyiapkan fondasi SEO on-page termasuk meta tags, keyword targeting, dan struktur halaman yang lebih bersih.",
+        "Menyelaraskan optimasi teknis dengan audience travel yang banyak browsing lewat mobile.",
+      ],
+      outcomes: [
+        "Membuat fondasi halaman tour & travel lebih siap untuk SEO.",
+        "Meningkatkan page experience lewat image optimization dan mobile responsiveness.",
+        "Menyiapkan site untuk akuisisi organic dari pencarian travel internasional.",
+      ],
+      metrics: [
+        { label: "Client", value: "Travel" },
+        { label: "Lokasi", value: "Bali" },
+        { label: "Fokus", value: "SEO + Speed" },
+      ],
+    },
+    {
+      slug: "pucorooftop-page-speed",
+      scope: "Page speed optimization, Core Web Vitals, image compression, lazy loading, CSS/JS minification, server response time, dan mobile responsiveness",
+      result: "Mengoptimasi performa teknis untuk brand co-working, eatery, dan co-living di Canggu.",
+      role: "Technical Web Optimization",
+      timeline: "Sprint optimasi",
+      stack: ["Core Web Vitals", "Image Compression", "Lazy Loading", "CSS/JS Minification", "Server Response Time"],
+      challenge:
+        "pucorooftop.com butuh pengalaman browsing yang lebih cepat untuk pengunjung workspace, eatery, dan co-living di Canggu.",
+      approach: [
+        "Mengompresi image dan menerapkan lazy loading untuk mengurangi bobot halaman.",
+        "Minify CSS/JS dan memperbaiki server response time agar loading lebih cepat.",
+        "Mengecek mobile responsiveness supaya site nyaman dipakai audience lokal maupun traveler.",
+      ],
+      outcomes: [
+        "Meningkatkan baseline performa teknis untuk brand workspace di Canggu.",
+        "Mengurangi overhead asset dan rendering lewat compression, lazy loading, dan minification.",
+        "Memperkuat fondasi UX untuk visitor mobile yang sedang mengevaluasi venue.",
+      ],
+      metrics: [
+        { label: "Client", value: "Workspace" },
+        { label: "Lokasi", value: "Canggu" },
+        { label: "Fokus", value: "Page Speed" },
       ],
     },
     {

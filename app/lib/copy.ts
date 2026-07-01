@@ -86,6 +86,8 @@ export const COPY: Record<Lang, Copy> = {
       { y: "26", c: "EMVEEP Technical SEO", d: "Health Score 100, GTmetrix D > A, 1,512 URLs crawled", tag: "SEO, Speed, GEO" },
       { y: "26", c: "EMVEEP Content & GEO", d: "1K active users, 384+ leads, AI Search visibility", tag: "Content Strategy" },
       { y: "26", c: "Firefly Laser Bali", d: "#1 organic rankings and 150+ bookings/month", tag: "Local SEO" },
+      { y: "26", c: "mybalitour.com", d: "Tour & travel SEO on-page setup and page speed optimization", tag: "Travel SEO" },
+      { y: "26", c: "pucorooftop.com", d: "Workspace/eatery page speed optimization for Canggu audience", tag: "Speed, Bali" },
       { y: "26", c: "Page Speed Optimization", d: "GTmetrix Grade A, 85% performance, 97% structure", tag: "Core Web Vitals" }
     ],
     voicesH: "What founders said.",
@@ -174,6 +176,8 @@ export const COPY: Record<Lang, Copy> = {
       { y: "26", c: "EMVEEP Technical SEO", d: "Health Score 100, GTmetrix D > A, 1.512 URL diaudit", tag: "SEO, Speed, GEO" },
       { y: "26", c: "EMVEEP Content & GEO", d: "1K active users, 384+ leads, muncul di AI Search", tag: "Content Strategy" },
       { y: "26", c: "Firefly Laser Bali", d: "Ranking #1 organic dan 150+ booking/bulan", tag: "Local SEO" },
+      { y: "26", c: "mybalitour.com", d: "Setup SEO on-page dan page speed untuk tour & travel Bali", tag: "Travel SEO" },
+      { y: "26", c: "pucorooftop.com", d: "Optimasi page speed untuk workspace/eatery audience Canggu", tag: "Speed, Bali" },
       { y: "26", c: "Page Speed Optimization", d: "GTmetrix Grade A, performance 85%, structure 97%", tag: "Core Web Vitals" }
     ],
     voicesH: "Apa kata founder.",
