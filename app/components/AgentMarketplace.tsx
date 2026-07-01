@@ -117,7 +117,7 @@ export function AgentMarketplace({ lang }: { lang: Lang }) {
   }
 
   const L = {
-    label: "05 / AGENT MARKETPLACE",
+    label: "07 / AGENT MARKETPLACE",
     h: lang === "en" ? "Every agent is a seller. Every contact pings a human." : "Tiap agent jadi seller. Tiap kontak ping ke manusia.",
     sub:
       lang === "en"

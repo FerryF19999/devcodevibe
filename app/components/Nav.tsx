@@ -27,10 +27,10 @@ export function Nav({ lang, t, currentPage = "home", languageHrefs }: Props) {
       </a>
       <div className="vwc-nav-links">
         <a href={homeHref(lang, "#services")}>{t.nav.services}</a>
-        <a href={homeHref(lang, "#marketplace")}>{t.nav.marketplace}</a>
-        <a href={homeHref(lang, "#tools")}>{t.nav.tools}</a>
-        <a href={homeHref(lang, "#pricing")}>{t.nav.pricing}</a>
         <a href={workHref(lang)}>{t.nav.cases}</a>
+        <a href={homeHref(lang, "#agent")}>{t.nav.cms}</a>
+        <a href={homeHref(lang, "#marketplace")}>{t.nav.marketplace}</a>
+        <a href={homeHref(lang, "#pricing")}>{t.nav.pricing}</a>
         <a href={homeHref(lang, "#faq")}>{t.nav.faq}</a>
         <a href={homeHref(lang, "#blog")}>{t.nav.blog}</a>
       </div>

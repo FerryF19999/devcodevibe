@@ -8,6 +8,7 @@ import { AgentMarketplace } from "./AgentMarketplace";
 import { Tools } from "./Tools";
 import { Pricing } from "./Pricing";
 import { Cases } from "./Cases";
+import { Proof } from "./Proof";
 import { Voices } from "./Voices";
 import { LlmsCallout } from "./LlmsCallout";
 import { FAQ } from "./FAQ";
@@ -23,13 +24,14 @@ export function App({ lang }: { lang: Lang }) {
       <Nav lang={lang} t={t} />
       <main id="main-content">
         <Hero t={t} lang={lang} />
+        <Cases t={t} lang={lang} />
         <Services t={t} />
+        <Proof lang={lang} />
         <AgentDemo t={t} lang={lang} />
         <Marketplace t={t} lang={lang} />
         <AgentMarketplace lang={lang} />
         <Tools t={t} />
         <Pricing t={t} lang={lang} />
-        <Cases t={t} lang={lang} />
         <Voices t={t} />
         <LlmsCallout t={t} lang={lang} />
         <FAQ t={t} />

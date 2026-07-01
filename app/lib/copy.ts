@@ -49,7 +49,7 @@ export const COPY: Record<Lang, Copy> = {
     cta2: "Talk to the agent",
     heroLabel: "// LIVE / generating site.tsx",
     heroPrompt: "build a landing page for a calm-tech journaling app, agent-ready",
-    sectionTagline: { services: "01 / SERVICES", agent: "02 / AGENT DEMO", market: "04 / MARKETPLACE", tools: "06 / TOOLS", pricing: "07 / PRICING", cases: "08 / SELECTED WORK", voices: "09 / VOICES", llms: "10 / FOR AGENTS", faq: "11 / FAQ", blog: "12 / JOURNAL" },
+    sectionTagline: { services: "03 / SERVICES", agent: "05 / AGENT DEMO", market: "06 / MARKETPLACE", tools: "08 / TOOLS", pricing: "09 / PRICING", cases: "02 / SELECTED WORK", voices: "10 / VOICES", llms: "11 / FOR AGENTS", faq: "12 / FAQ", blog: "13 / JOURNAL" },
     servicesH: "Three ways we build with you.",
     services: [
       { k: "DFY/01", t: "Done-for-you sprint", d: "One week. One surface. We pair senior engineers with coding agents to ship a polished slice of your product: production grade, not a prototype.", price: "from $1,400" },
@@ -139,7 +139,7 @@ export const COPY: Record<Lang, Copy> = {
     cta2: "Tanya agent-nya",
     heroLabel: "// LIVE / membuat site.tsx",
     heroPrompt: "buat landing page untuk app jurnal calm-tech, siap-agent",
-    sectionTagline: { services: "01 / LAYANAN", agent: "02 / DEMO AGENT", market: "04 / MARKETPLACE", tools: "06 / TOOLS", pricing: "07 / HARGA", cases: "08 / KARYA TERPILIH", voices: "09 / SUARA", llms: "10 / UNTUK AGENT", faq: "11 / FAQ", blog: "12 / JURNAL" },
+    sectionTagline: { services: "03 / LAYANAN", agent: "05 / DEMO AGENT", market: "06 / MARKETPLACE", tools: "08 / TOOLS", pricing: "09 / HARGA", cases: "02 / KARYA TERPILIH", voices: "10 / SUARA", llms: "11 / UNTUK AGENT", faq: "12 / FAQ", blog: "13 / JURNAL" },
     servicesH: "Tiga cara kami bangun bareng kamu.",
     services: [
       { k: "DFY/01", t: "Sprint done-for-you", d: "Satu minggu. Satu permukaan. Engineer senior + agent coding untuk satu slice produk yang siap produksi, bukan prototipe.", price: "mulai $1,400" },
