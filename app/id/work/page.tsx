@@ -4,7 +4,7 @@ import { WorkPage } from "../../components/WorkPage";
 export const metadata: Metadata = {
   title: "Karya terpilih | devcodeagency",
   description:
-    "Karya terpilih devcodeagency: MVP, commerce, tool agent-first, dan sprint produk calm-tech yang sedikit diredaksi.",
+    "Karya SEO dan web development Muhammad Ferry Fitriadi: EMVEEP, Firefly Laser Bali, content strategy, GEO, dan page speed optimization.",
   alternates: {
     canonical: "/id/work",
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Karya terpilih | devcodeagency",
-    description: "Case study ringan dari build MVP, commerce, agent, dan SaaS devcodeagency.",
+    description: "Case study SEO, GEO, local ranking, dan page speed dari portfolio Ferry.",
     url: "/id/work",
     locale: "id_ID",
     alternateLocale: "en_US",

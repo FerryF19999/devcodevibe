@@ -83,10 +83,10 @@ export const COPY: Record<Lang, Copy> = {
     ],
     casesH: "Selected work, lightly redacted.",
     cases: [
-      { y: "26", c: "Quietnote", d: "Journaling SaaS, $0 → $4.2k MRR in 11 weeks", tag: "MVP + retainer" },
-      { y: "26", c: "Tokopanen", d: "Farm-to-table commerce for ID growers", tag: "Bahasa, QRIS" },
-      { y: "25", c: "Brieflet", d: "Agent-first PM tool, 2,300 weekly actives", tag: "Agent SDK" },
-      { y: "25", c: "Fernpath", d: "Calm-tech ergonomics tracker for remote teams", tag: "Sprint x3" }
+      { y: "26", c: "EMVEEP Technical SEO", d: "Health Score 100, GTmetrix D > A, 1,512 URLs crawled", tag: "SEO, Speed, GEO" },
+      { y: "26", c: "EMVEEP Content & GEO", d: "1K active users, 384+ leads, AI Search visibility", tag: "Content Strategy" },
+      { y: "26", c: "Firefly Laser Bali", d: "#1 organic rankings and 150+ bookings/month", tag: "Local SEO" },
+      { y: "26", c: "Page Speed Optimization", d: "GTmetrix Grade A, 85% performance, 97% structure", tag: "Core Web Vitals" }
     ],
     voicesH: "What founders said.",
     voices: [
@@ -171,10 +171,10 @@ export const COPY: Record<Lang, Copy> = {
     ],
     casesH: "Karya terpilih, sedikit diredaksi.",
     cases: [
-      { y: "26", c: "Quietnote", d: "SaaS jurnaling, $0 → $4.2k MRR dalam 11 minggu", tag: "MVP + retainer" },
-      { y: "26", c: "Tokopanen", d: "Commerce farm-to-table buat petani ID", tag: "Bahasa, QRIS" },
-      { y: "25", c: "Brieflet", d: "Tool PM agent-first, 2.300 active mingguan", tag: "Agent SDK" },
-      { y: "25", c: "Fernpath", d: "Tracker ergonomi calm-tech untuk tim remote", tag: "Sprint x3" }
+      { y: "26", c: "EMVEEP Technical SEO", d: "Health Score 100, GTmetrix D > A, 1.512 URL diaudit", tag: "SEO, Speed, GEO" },
+      { y: "26", c: "EMVEEP Content & GEO", d: "1K active users, 384+ leads, muncul di AI Search", tag: "Content Strategy" },
+      { y: "26", c: "Firefly Laser Bali", d: "Ranking #1 organic dan 150+ booking/bulan", tag: "Local SEO" },
+      { y: "26", c: "Page Speed Optimization", d: "GTmetrix Grade A, performance 85%, structure 97%", tag: "Core Web Vitals" }
     ],
     voicesH: "Apa kata founder.",
     voices: [

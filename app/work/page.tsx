@@ -4,7 +4,7 @@ import { WorkPage } from "../components/WorkPage";
 export const metadata: Metadata = {
   title: "Selected work | devcodeagency",
   description:
-    "Selected devcodeagency work: lightly redacted MVPs, commerce builds, agent-first tools, and calm-tech product sprints.",
+    "Selected SEO and web development work from Muhammad Ferry Fitriadi: EMVEEP, Firefly Laser Bali, content strategy, GEO, and page speed optimization.",
   alternates: {
     canonical: "/work",
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Selected work | devcodeagency",
-    description: "Lightly redacted case studies from devcodeagency MVP, commerce, agent, and SaaS builds.",
+    description: "SEO, GEO, local ranking, and page speed case studies from Ferry's portfolio.",
     url: "/work",
   },
 };

@@ -10,8 +10,8 @@ export function WorkPage({ lang }: { lang: Lang }) {
   const workCases = getWorkCases(lang);
   const intro =
     lang === "en"
-      ? "A compact archive of shipped work: names changed where needed, numbers kept useful, and the product surface shown plainly."
-      : "Arsip ringkas pekerjaan yang sudah dikirim: beberapa nama disamarkan, angka tetap berguna, dan surface produk dijelaskan apa adanya.";
+      ? "A compact archive from Ferry's SEO and web development portfolio: technical SEO, GEO, local rankings, traffic growth, and page speed wins."
+      : "Arsip ringkas dari portfolio SEO dan web development Ferry: technical SEO, GEO, local ranking, pertumbuhan traffic, dan page speed.";
   const note =
     lang === "en"
       ? "Need the unredacted version? We share deeper notes after a fit check."
