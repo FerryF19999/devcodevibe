@@ -29,7 +29,7 @@ export function App({ lang }: { lang: Lang }) {
         <AgentMarketplace lang={lang} />
         <Tools t={t} />
         <Pricing t={t} lang={lang} />
-        <Cases t={t} />
+        <Cases t={t} lang={lang} />
         <Voices t={t} />
         <LlmsCallout t={t} lang={lang} />
         <FAQ t={t} />

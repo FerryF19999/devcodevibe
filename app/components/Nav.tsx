@@ -1,6 +1,6 @@
 import type { Copy, Lang } from "../lib/copy";
 
-type Props = { lang: Lang; t: Copy; currentPage?: "home" | "work" };
+type Props = { lang: Lang; t: Copy; currentPage?: "home" | "work"; languageHrefs?: { en: string; id: string } };
 
 function homeHref(lang: Lang, hash = "") {
   const base = lang === "id" ? "/id" : "/";
@@ -11,9 +11,9 @@ function workHref(lang: Lang) {
   return lang === "id" ? "/id/work" : "/work";
 }
 
-export function Nav({ lang, t, currentPage = "home" }: Props) {
-  const enHref = currentPage === "work" ? "/work" : "/";
-  const idHref = currentPage === "work" ? "/id/work" : "/id";
+export function Nav({ lang, t, currentPage = "home", languageHrefs }: Props) {
+  const enHref = languageHrefs?.en ?? (currentPage === "work" ? "/work" : "/");
+  const idHref = languageHrefs?.id ?? (currentPage === "work" ? "/id/work" : "/id");
 
   return (
     <nav className="vwc-nav" aria-label="Primary">

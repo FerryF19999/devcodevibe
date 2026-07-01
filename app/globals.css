@@ -445,10 +445,165 @@ img, svg { display: block; max-width: 100%; }
   color: var(--fg-soft);
   max-width: 54ch;
 }
+.vwc-work-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 42px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--fg-mute);
+  letter-spacing: 0.04em;
+}
+.vwc-work-back:hover {
+  color: var(--fg);
+}
+.vwc-work-detail-hero {
+  padding-top: clamp(48px, 5vw, 82px);
+  padding-bottom: 0;
+}
+.vwc-work-detail-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 56px;
+  align-items: end;
+  padding-bottom: clamp(44px, 6vw, 76px);
+}
+.vwc-work-detail-head .vwc-h1 {
+  margin: 0 0 20px;
+  font-size: clamp(64px, 8vw, 132px);
+  letter-spacing: 0;
+}
+.vwc-work-detail-summary {
+  max-width: 50ch;
+  margin: 0;
+  color: var(--fg);
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.35;
+}
+.vwc-work-detail-meta {
+  display: grid;
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.vwc-work-detail-meta div {
+  display: grid;
+  gap: 4px;
+}
+.vwc-work-detail-meta span,
+.vwc-work-metrics dt,
+.vwc-work-sidebar h2,
+.vwc-work-block h2 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--fg-mute);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.vwc-work-detail-meta strong {
+  font-weight: 500;
+  line-height: 1.35;
+}
+.vwc-work-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+}
+.vwc-work-metrics div {
+  padding: 26px 24px 24px 0;
+  border-right: 1px solid var(--line);
+}
+.vwc-work-metrics div:last-child {
+  border-right: 0;
+}
+.vwc-work-metrics dt,
+.vwc-work-metrics dd {
+  margin: 0;
+}
+.vwc-work-metrics dd {
+  margin-top: 10px;
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1;
+}
+.vwc-work-detail-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 72px;
+  align-items: start;
+}
+.vwc-work-narrative {
+  display: grid;
+  gap: 44px;
+}
+.vwc-work-block {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 32px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--line);
+}
+.vwc-work-block h2 {
+  margin: 5px 0 0;
+}
+.vwc-work-block p,
+.vwc-work-block li {
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--fg-soft);
+}
+.vwc-work-block p {
+  margin: 0;
+}
+.vwc-work-block ol {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding-left: 22px;
+}
+.vwc-work-sidebar {
+  position: sticky;
+  top: 104px;
+  display: grid;
+  gap: 22px;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 24px;
+}
+.vwc-work-sidebar h2 {
+  margin: 0;
+}
+.vwc-work-sidebar ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.vwc-work-sidebar li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg-soft);
+}
 @media (max-width: 940px) {
   .vwc-work-head {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .vwc-work-detail-head,
+  .vwc-work-detail-body {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .vwc-work-sidebar {
+    position: static;
   }
   .vwc-case-row-detailed {
     grid-template-columns: 1fr 32px;
@@ -468,6 +623,28 @@ img, svg { display: block; max-width: 100%; }
 @media (max-width: 640px) {
   .vwc-work-head .vwc-h1 {
     font-size: clamp(42px, 4rem, 56px);
+  }
+  .vwc-work-detail-head .vwc-h1 {
+    font-size: clamp(54px, 5rem, 72px);
+  }
+  .vwc-work-metrics {
+    grid-template-columns: 1fr;
+  }
+  .vwc-work-metrics div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding-right: 0;
+  }
+  .vwc-work-metrics div:last-child {
+    border-bottom: 0;
+  }
+  .vwc-work-block {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .vwc-work-block p,
+  .vwc-work-block li {
+    font-size: 16px;
   }
   .vwc-work-note {
     align-items: stretch;
