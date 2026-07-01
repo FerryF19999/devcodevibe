@@ -4,7 +4,7 @@ import { WorkPage } from "../components/WorkPage";
 export const metadata: Metadata = {
   title: "Selected work | devcodeagency",
   description:
-    "Selected SEO and web development work from Muhammad Ferry Fitriadi: EMVEEP, Firefly Laser Bali, content strategy, GEO, and page speed optimization.",
+    "Selected SEO and web development work from Muhammad Ferry Fitriadi: technical SEO, local SEO, content strategy, GEO, and page speed optimization.",
   alternates: {
     canonical: "/work",
     languages: {

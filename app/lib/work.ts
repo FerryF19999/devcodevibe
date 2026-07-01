@@ -20,14 +20,14 @@ export type WorkCase = {
 const WORK_DETAILS = {
   en: [
     {
-      slug: "emveep-technical-seo",
+      slug: "software-company-technical-seo",
       scope: "Technical SEO audit, crawl cleanup, page speed optimization, content strategy, and GEO readiness",
-      result: "Moved EMVEEP from multiple crawl issues and GTmetrix Grade D to Health Score 100 and GTmetrix Grade A.",
+      result: "Moved a software development company from multiple crawl issues and GTmetrix Grade D to Health Score 100 and GTmetrix Grade A.",
       role: "SEO & Digital Marketing Lead",
       timeline: "Technical audit and optimization program",
       stack: ["Ahrefs", "GTmetrix", "Search Console", "Analytics", "Tag Manager", "Lighthouse"],
       challenge:
-        "EMVEEP had crawl errors, redirect issues, slow indexing, and page speed debt that limited organic visibility for a software development company.",
+        "A software development company had crawl errors, redirect issues, slow indexing, and page speed debt that limited organic visibility.",
       approach: [
         "Ran a technical SEO audit to find broken links, redirect issues, crawl errors, and indexing blockers.",
         "Optimized Core Web Vitals and page speed, moving GTmetrix performance from Grade D to Grade A.",
@@ -45,18 +45,18 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "emveep-content-geo",
+      slug: "software-company-content-geo",
       scope: "Taxonomy research, keyword research, topic clusters, SERP analysis, SEO leads, and AI Search optimization",
       result: "Grew organic visibility with 1K active users in 28 days, 384+ SEO leads, and AI Search recommendations.",
       role: "Content Strategy & GEO Lead",
       timeline: "28-day traffic snapshot plus long-term SEO compounding",
       stack: ["Google Analytics", "Search Console", "Ahrefs", "SERP Analysis", "Topic Clusters", "GEO"],
       challenge:
-        "EMVEEP needed a content system that could capture software development intent, build topic authority, and appear in AI-driven search surfaces.",
+        "The software development company needed a content system that could capture software development intent, build topic authority, and appear in AI-driven search surfaces.",
       approach: [
         "Built taxonomy research, keyword mapping, topic clusters, and blog planning from SERP analysis.",
         "Connected content planning to analytics so traffic, engagement, and lead impact could be measured.",
-        "Optimized for GEO so EMVEEP could appear in ChatGPT, Gemini, and Google AI Overview recommendations.",
+        "Optimized for GEO so the brand could appear in ChatGPT, Gemini, and Google AI Overview recommendations.",
       ],
       outcomes: [
         "Reached 1K active users and 988 new users in a 28-day analytics window.",
@@ -70,14 +70,14 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "firefly-laser-bali",
+      slug: "canggu-beauty-clinic-seo",
       scope: "Local SEO, Google ranking, Google Maps visibility, AI Search visibility, and beauty clinic content optimization",
       result: "Secured #1 organic rankings for Canggu treatment keywords and drove 150+ monthly bookings from organic search.",
       role: "SEO & Local Search Specialist",
       timeline: "First two months showed measurable growth",
       stack: ["Google Search", "Google Maps", "Local SEO", "Content Optimization", "GEO"],
       challenge:
-        "Firefly Laser Bali needed stronger visibility for treatment searches in Canggu across Google Search, Maps, and AI recommendation flows.",
+        "A Canggu beauty clinic needed stronger visibility for treatment searches across Google Search, Maps, and AI recommendation flows.",
       approach: [
         "Optimized service pages and local signals around high-intent Canggu treatment keywords.",
         "Improved reporting and SEO analysis so the client could see progress clearly in the first two months.",
@@ -120,14 +120,14 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "pucorooftop-page-speed",
+      slug: "canggu-workspace-page-speed",
       scope: "Page speed optimization, Core Web Vitals, image compression, lazy loading, CSS/JS minification, server response time, and mobile responsiveness",
       result: "Optimized technical performance for a Canggu co-working, eatery, and co-living brand.",
       role: "Technical Web Optimization",
       timeline: "Optimization sprint",
       stack: ["Core Web Vitals", "Image Compression", "Lazy Loading", "CSS/JS Minification", "Server Response Time"],
       challenge:
-        "pucorooftop.com needed a faster browsing experience for workspace, eatery, and co-living visitors in Canggu.",
+        "A Canggu workspace, eatery, and co-living site needed a faster browsing experience for venue visitors.",
       approach: [
         "Compressed images and implemented lazy loading to reduce page weight.",
         "Minified CSS/JS and improved server response time to support faster loading.",
@@ -145,9 +145,9 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "page-speed-optimization",
+      slug: "multi-site-page-speed-optimization",
       scope: "Core Web Vitals, image compression, lazy loading, CSS/JS minification, server response time, and mobile responsiveness",
-      result: "Optimized multiple websites including a Bali tour site, a Canggu workspace site, and devcodeagency.com for faster UX and stronger SEO.",
+      result: "Optimized multiple websites including a Bali tour site, a Canggu workspace site, and an internal studio site for faster UX and stronger SEO.",
       role: "Web Development & Technical Optimization",
       timeline: "Speed optimization sprint",
       stack: ["GTmetrix", "Lighthouse", "Core Web Vitals", "Image Optimization", "CSS/JS Minification"],
@@ -159,7 +159,7 @@ const WORK_DETAILS = {
         "Applied on-page SEO setup, meta tag optimization, and mobile responsiveness where each site needed it.",
       ],
       outcomes: [
-        "devcodeagency.com reached GTmetrix Grade A with 85% performance and 97% structure.",
+        "The internal studio site reached GTmetrix Grade A with 85% performance and 97% structure.",
         "Measured 1.7s LCP, 0ms TBT, 0 CLS, 1.4s TTFB, and 3.1s fully loaded time.",
         "Reduced measured page size to 257KB across 28 total requests for the GTmetrix result.",
       ],
@@ -172,14 +172,14 @@ const WORK_DETAILS = {
   ],
   id: [
     {
-      slug: "emveep-technical-seo",
+      slug: "software-company-technical-seo",
       scope: "Technical SEO audit, perbaikan crawl, page speed optimization, content strategy, dan kesiapan GEO",
-      result: "Membawa EMVEEP dari banyak crawl issue dan GTmetrix Grade D menjadi Health Score 100 dan GTmetrix Grade A.",
+      result: "Membawa sebuah software development company dari banyak crawl issue dan GTmetrix Grade D menjadi Health Score 100 dan GTmetrix Grade A.",
       role: "SEO & Digital Marketing Lead",
       timeline: "Program audit teknis dan optimasi",
       stack: ["Ahrefs", "GTmetrix", "Search Console", "Analytics", "Tag Manager", "Lighthouse"],
       challenge:
-        "EMVEEP punya crawl error, redirect issue, slow indexing, dan technical debt page speed yang menahan organic visibility sebagai software development company.",
+        "Sebuah software development company punya crawl error, redirect issue, slow indexing, dan technical debt page speed yang menahan organic visibility.",
       approach: [
         "Menjalankan technical SEO audit untuk menemukan broken links, redirect issue, crawl error, dan blocker indexing.",
         "Mengoptimasi Core Web Vitals dan page speed hingga GTmetrix naik dari Grade D ke Grade A.",
@@ -197,18 +197,18 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "emveep-content-geo",
+      slug: "software-company-content-geo",
       scope: "Taxonomy research, keyword research, topic clusters, SERP analysis, SEO leads, dan AI Search optimization",
       result: "Meningkatkan organic visibility dengan 1K active users dalam 28 hari, 384+ SEO leads, dan rekomendasi AI Search.",
       role: "Content Strategy & GEO Lead",
       timeline: "Snapshot traffic 28 hari plus compounding SEO jangka panjang",
       stack: ["Google Analytics", "Search Console", "Ahrefs", "SERP Analysis", "Topic Clusters", "GEO"],
       challenge:
-        "EMVEEP butuh sistem konten yang menangkap intent software development, membangun topic authority, dan muncul di permukaan AI-driven search.",
+        "Software development company ini butuh sistem konten yang menangkap intent software development, membangun topic authority, dan muncul di permukaan AI-driven search.",
       approach: [
         "Membangun taxonomy research, keyword mapping, topic cluster, dan blog planning dari SERP analysis.",
         "Menghubungkan content planning ke analytics agar traffic, engagement, dan impact leads bisa diukur.",
-        "Mengoptimasi GEO agar EMVEEP muncul di rekomendasi ChatGPT, Gemini, dan Google AI Overview.",
+        "Mengoptimasi GEO agar brand muncul di rekomendasi ChatGPT, Gemini, dan Google AI Overview.",
       ],
       outcomes: [
         "Mencapai 1K active users dan 988 new users dalam window analytics 28 hari.",
@@ -222,14 +222,14 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "firefly-laser-bali",
+      slug: "canggu-beauty-clinic-seo",
       scope: "Local SEO, ranking Google, visibilitas Google Maps, AI Search, dan optimasi konten klinik kecantikan",
       result: "Mengamankan ranking #1 organic untuk keyword treatment Canggu dan mendorong 150+ booking per bulan dari organic search.",
       role: "SEO & Local Search Specialist",
       timeline: "Dua bulan pertama sudah menunjukkan growth terukur",
       stack: ["Google Search", "Google Maps", "Local SEO", "Content Optimization", "GEO"],
       challenge:
-        "Firefly Laser Bali butuh visibility lebih kuat untuk pencarian treatment di Canggu melalui Google Search, Maps, dan rekomendasi AI.",
+        "Sebuah beauty clinic di Canggu butuh visibility lebih kuat untuk pencarian treatment melalui Google Search, Maps, dan rekomendasi AI.",
       approach: [
         "Mengoptimasi service pages dan local signals untuk keyword treatment Canggu dengan intent tinggi.",
         "Meningkatkan reporting dan analisis SEO agar client melihat progress dengan jelas dalam dua bulan pertama.",
@@ -272,14 +272,14 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "pucorooftop-page-speed",
+      slug: "canggu-workspace-page-speed",
       scope: "Page speed optimization, Core Web Vitals, image compression, lazy loading, CSS/JS minification, server response time, dan mobile responsiveness",
       result: "Mengoptimasi performa teknis untuk brand co-working, eatery, dan co-living di Canggu.",
       role: "Technical Web Optimization",
       timeline: "Sprint optimasi",
       stack: ["Core Web Vitals", "Image Compression", "Lazy Loading", "CSS/JS Minification", "Server Response Time"],
       challenge:
-        "pucorooftop.com butuh pengalaman browsing yang lebih cepat untuk pengunjung workspace, eatery, dan co-living di Canggu.",
+        "Website workspace, eatery, dan co-living di Canggu butuh pengalaman browsing yang lebih cepat untuk pengunjung venue.",
       approach: [
         "Mengompresi image dan menerapkan lazy loading untuk mengurangi bobot halaman.",
         "Minify CSS/JS dan memperbaiki server response time agar loading lebih cepat.",
@@ -297,9 +297,9 @@ const WORK_DETAILS = {
       ],
     },
     {
-      slug: "page-speed-optimization",
+      slug: "multi-site-page-speed-optimization",
       scope: "Core Web Vitals, image compression, lazy loading, CSS/JS minification, server response time, dan mobile responsiveness",
-      result: "Mengoptimasi website tour Bali, website workspace Canggu, dan devcodeagency.com untuk UX lebih cepat dan SEO lebih kuat.",
+      result: "Mengoptimasi website tour Bali, website workspace Canggu, dan website studio internal untuk UX lebih cepat dan SEO lebih kuat.",
       role: "Web Development & Technical Optimization",
       timeline: "Sprint optimasi speed",
       stack: ["GTmetrix", "Lighthouse", "Core Web Vitals", "Image Optimization", "CSS/JS Minification"],
@@ -311,7 +311,7 @@ const WORK_DETAILS = {
         "Menerapkan setup on-page SEO, optimasi meta tag, dan mobile responsiveness sesuai kebutuhan tiap site.",
       ],
       outcomes: [
-        "devcodeagency.com mencapai GTmetrix Grade A dengan performance 85% dan structure 97%.",
+        "Website studio internal mencapai GTmetrix Grade A dengan performance 85% dan structure 97%.",
         "Metrik tercatat: 1.7s LCP, 0ms TBT, 0 CLS, 1.4s TTFB, dan 3.1s fully loaded time.",
         "Page size terukur turun ke 257KB dengan 28 total requests pada hasil GTmetrix.",
       ],
