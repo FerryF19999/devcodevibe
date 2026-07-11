@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { App } from "../components/App";
+import "../drop/drop.css";
 
 export const metadata: Metadata = {
-  title: "devcodeagency | studio vibe coding AI-agent-native untuk indie hacker",
+  title: "devcodeagency | Drop, preview, dan build website dengan Codex",
   description:
-    "devcodeagency adalah studio AI-agent-native. MVP vibe coding done-for-you dalam 9 hari, template agent-ready, dan SaaS kecil. Bilingual EN/ID. Mulai $1,400.",
+    "Drop folder static atau ZIP untuk live preview, lanjut build dengan Codex memakai token usage, atau hire developer bulanan.",
   alternates: {
     canonical: "/id",
     languages: {
@@ -21,5 +22,5 @@ export const metadata: Metadata = {
 };
 
 export default function IndonesianPage() {
-  return <App lang="id" />;
+  return <App lang="id" hero="drop" />;
 }

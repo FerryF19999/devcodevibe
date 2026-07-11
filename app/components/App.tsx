@@ -8,32 +8,29 @@ import { AgentMarketplace } from "./AgentMarketplace";
 import { Tools } from "./Tools";
 import { Pricing } from "./Pricing";
 import { Cases } from "./Cases";
-import { Proof } from "./Proof";
 import { Voices } from "./Voices";
-import { LlmsCallout } from "./LlmsCallout";
 import { FAQ } from "./FAQ";
 import { Blog } from "./Blog";
 import { StartStrip } from "./StartStrip";
 import { Footer } from "./Footer";
+import { DropExperience } from "../drop/DropExperience";
 
-export function App({ lang }: { lang: Lang }) {
+export function App({ lang, hero = "drop" }: { lang: Lang; hero?: "drop" | "legacy" }) {
   const t = COPY[lang];
 
   return (
     <div className="vwc-app" lang={lang}>
       <Nav lang={lang} t={t} />
       <main id="main-content">
-        <Hero t={t} lang={lang} />
-        <Cases t={t} lang={lang} />
+        {hero === "drop" ? <DropExperience embedded /> : <Hero t={t} lang={lang} />}
         <Services t={t} />
-        <Proof lang={lang} />
         <AgentDemo t={t} lang={lang} />
         <Marketplace t={t} lang={lang} />
         <AgentMarketplace lang={lang} />
         <Tools t={t} />
         <Pricing t={t} lang={lang} />
+        <Cases t={t} />
         <Voices t={t} />
-        <LlmsCallout t={t} lang={lang} />
         <FAQ t={t} />
         <Blog t={t} lang={lang} />
         <StartStrip t={t} lang={lang} />

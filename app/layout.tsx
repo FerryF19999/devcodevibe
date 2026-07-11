@@ -28,9 +28,9 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "devcodeagency | AI-agent-native vibe coding studio for indie hackers",
+  title: "devcodeagency | Drop, preview, and build websites with Codex",
   description:
-    "devcodeagency is an AI-agent-native studio. Done-for-you vibe coding MVPs in 9 days, agent-ready templates, and small SaaS tools. Bilingual EN/ID. From $1,400.",
+    "Drop a static folder or ZIP for an instant live preview, then build with Codex using token-based usage or hire a developer monthly.",
   keywords: [
     "vibe coding",
     "AI agent native",
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "devcodeagency | AI-agent-native vibe coding studio",
+    title: "devcodeagency | Drop and build websites with Codex",
     description:
-      "Done-for-you MVPs in 9 days, agent-ready templates, small SaaS tools. Bilingual EN/ID.",
+      "Drop static files for a live preview, continue with Codex, or hire a developer monthly.",
     url: SITE_URL,
     siteName: "devcodeagency",
     locale: "en_US",
@@ -64,8 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "devcodeagency | vibe coding for indie hackers",
-    description: "Agent-native MVPs, templates, and SaaS tools. From $1,400.",
+    title: "devcodeagency | Drop and build with Codex",
+    description: "Static Drop, live preview, token-based Codex usage, and monthly Hire Dev.",
   },
 };
 
@@ -80,14 +80,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
       <PostHogProvider>
         <div className="sr-only">
+          <h1>devcodeagency | Drop, preview, and build websites with Codex</h1>
           <p>
-            <strong>devcodeagency | AI-agent-native vibe coding studio</strong>
-          </p>
-          <p>
-            Bilingual studio for indie hackers. Done-for-you MVPs in a median of 9 days, agent-ready templates from $29,
-            and small SaaS tools. Pricing: Starter Sprint $1,400, Full MVP $4,800, Async Retainer $3,200 per month.
-            Founded 2024. 47 shipped MVPs. 92% repeat clients. Templates downloaded 12,400+ times. Contact
-            hello@devcodeagency.dev.
+            Drop a static folder or ZIP for a temporary live preview. Continue building with Codex using weighted token usage,
+            or hire a human developer from Rp6 million per month. Beta packs start at 800K tokens for Rp100,000.
+            Contact hello@devcodeagency.dev.
           </p>
         </div>
         {children}

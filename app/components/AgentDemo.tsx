@@ -1,149 +1,126 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Copy, Lang } from "../lib/copy";
-import { agentComplete } from "../lib/agent";
-import { capture } from "../lib/analytics";
 import { SectionLabel } from "./shared";
 
-type Msg = { role: "user" | "agent"; text: string };
+type Stage = "idle" | "plan" | "edit" | "check" | "ready";
 
-export function AgentDemo({ t, lang }: { t: Copy; lang: Lang }) {
-  const [messages, setMessages] = useState<Msg[]>([
-    {
-      role: "agent",
-      text:
-        lang === "en"
-          ? "Hi, I'm the devcodeagency assistant. Ask anything: pricing, timelines, template recs, or have me draft a brief. I can also book a kickoff."
-          : "Hai, saya asisten devcodeagency. Tanya apa saja: harga, timeline, rekomendasi template, atau minta draft brief. Bisa juga booking kickoff.",
-    },
-  ]);
-  const [input, setInput] = useState("");
-  const [busy, setBusy] = useState(false);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const messageId = useId();
+const PROMPTS = {
+  en: [
+    "Make the hero feel more premium",
+    "Add a pricing section in IDR",
+    "Fix the mobile navigation",
+  ],
+  id: [
+    "Bikin hero lebih premium",
+    "Tambahkan section harga IDR",
+    "Rapikan navigation di mobile",
+  ],
+};
+
+const STAGES: Record<Exclude<Stage, "idle">, { label: string; file: string }> = {
+  plan: { label: "Membaca brief dan menyusun plan", file: "project context" },
+  edit: { label: "Mengubah komponen dan design tokens", file: "app/components/Hero.tsx" },
+  check: { label: "Menjalankan typecheck dan build", file: "npm run build" },
+  ready: { label: "Preview baru siap dilihat", file: "snapshot v12" },
+};
+
+export function AgentDemo({ lang }: { t: Copy; lang: Lang }) {
+  const [prompt, setPrompt] = useState(PROMPTS[lang][0]);
+  const [stage, setStage] = useState<Stage>("idle");
 
   useEffect(() => {
-    capture("agent_opened", { lang });
-  }, []);
+    if (stage === "idle" || stage === "ready") return;
+    const order: Stage[] = ["plan", "edit", "check", "ready"];
+    const timer = window.setTimeout(() => {
+      setStage(order[Math.min(order.indexOf(stage) + 1, order.length - 1)]);
+    }, 900);
+    return () => window.clearTimeout(timer);
+  }, [stage]);
 
-  useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  }, [messages, busy]);
+  const stageIndex = stage === "idle" ? -1 : ["plan", "edit", "check", "ready"].indexOf(stage);
+  const copy = lang === "en"
+    ? {
+        label: "02 / CODEX BUILD LOOP",
+        heading: "Drop it once. Keep building by conversation.",
+        body: "After a static site is live, ask Codex to change the real files. You see the plan, file diff, build result, and refreshed preview in one workspace.",
+        input: "Tell Codex what to change",
+        run: "Run with Codex",
+        again: "Try another change",
+        ready: "3 files changed · build passed · snapshot saved",
+      }
+    : {
+        label: "02 / ALUR BUILD CODEX",
+        heading: "Drop sekali. Lanjut bangun lewat percakapan.",
+        body: "Setelah website live, minta Codex mengubah file aslinya. Plan, diff file, hasil build, dan preview terbaru terlihat dalam satu workspace.",
+        input: "Tulis perubahan yang kamu mau",
+        run: "Jalankan dengan Codex",
+        again: "Coba perubahan lain",
+        ready: "3 file berubah · build lulus · snapshot tersimpan",
+      };
 
-  async function send(text?: string) {
-    const q = (text ?? input).trim();
-    if (!q || busy) return;
-    setMessages((m) => [...m, { role: "user", text: q }]);
-    setInput("");
-    setBusy(true);
-    capture("agent_question_sent", { lang });
-    const sys =
-      lang === "en"
-        ? "You are the devcodeagency assistant. Studio offers: Starter Sprint $1,400 (1 week), Full MVP $4,800 (2-3 weeks), Async Retainer $3,200/mo. Templates: Quietkit $89, Warungkit $69, Agentpost $49, Pocketboard $129, Schemaforge $29, Voicepage $59. Median ship 9 days. Bilingual EN/ID. Be concise (under 90 words), warm, specific. End with one helpful next step."
-        : "Kamu adalah asisten devcodeagency. Studio: Starter Sprint $1,400 (1 minggu), Full MVP $4,800 (2-3 minggu), Async Retainer $3,200/bln. Template: Quietkit $89, Warungkit $69, Agentpost $49, Pocketboard $129, Schemaforge $29, Voicepage $59. Median rilis 9 hari. Dwibahasa. Singkat (di bawah 90 kata), hangat, spesifik. Akhiri dengan satu langkah berikutnya.";
-    try {
-      const reply = await agentComplete(`${sys}\n\nUser: ${q}`);
-      setMessages((m) => [...m, { role: "agent", text: reply }]);
-    } catch {
-      setMessages((m) => [
-        ...m,
-        {
-          role: "agent",
-          text:
-            lang === "en"
-              ? "I couldn't reach the model just now. Email hello@devcodeagency.dev and we'll respond in hours."
-              : "Tidak bisa menghubungi model. Email hello@devcodeagency.dev, kami balas dalam jam.",
-        },
-      ]);
-    } finally {
-      setBusy(false);
-    }
+  function run() {
+    if (!prompt.trim()) return;
+    setStage("plan");
   }
 
   return (
     <section className="vwc-section vwc-section-tinted" id="agent">
-      <SectionLabel>{t.sectionTagline.agent}</SectionLabel>
-      <div className="vwc-agent-grid">
-        <div className="vwc-agent-left">
-          <h2 className="vwc-h2">{t.agentH}</h2>
-          <p className="vwc-lead">{t.agentSub}</p>
-          <div className="vwc-agent-meta">
-            <div className="vwc-meta-row">
-              <span>endpoint</span>
-              <code>POST /api/agent</code>
-            </div>
-            <div className="vwc-meta-row">
-              <span>auth</span>
-              <code>Bearer or anonymous</code>
-            </div>
-            <div className="vwc-meta-row">
-              <span>spec</span>
-              <code>/openapi.json</code>
-            </div>
-            <div className="vwc-meta-row">
-              <span>latency</span>
-              <code>~640ms p50</code>
-            </div>
+      <SectionLabel>{copy.label}</SectionLabel>
+      <div className="codex-loop-grid">
+        <div>
+          <h2 className="vwc-h2">{copy.heading}</h2>
+          <p className="vwc-lead">{copy.body}</p>
+          <div className="codex-loop-facts">
+            <div><span>OAuth</span><strong>Owner managed</strong></div>
+            <div><span>Billing</span><strong>Quoted in K tokens</strong></div>
+            <div><span>Preview</span><strong>Live + rollback</strong></div>
           </div>
         </div>
-        <div className="vwc-agent-right">
-          <div className="vwc-chat">
-            <div className="vwc-chat-bar">
-              <span className="vwc-chat-dot" /> assistant.devcodeagency · {lang.toUpperCase()}
-              <span className="vwc-chat-bar-r">claude-haiku</span>
-            </div>
-            <div className="vwc-chat-body" ref={scrollRef} role="log" aria-live="polite" aria-label="Assistant conversation">
-              {messages.map((m, i) => (
-                <div key={i} className={`vwc-msg vwc-msg-${m.role}`}>
-                  <div className="vwc-msg-tag">
-                    {m.role === "user" ? (lang === "en" ? "you" : "kamu") : "assistant"}
-                  </div>
-                  <div className="vwc-msg-text">{m.text}</div>
-                </div>
-              ))}
-              {busy && (
-                <div className="vwc-msg vwc-msg-agent">
-                  <div className="vwc-msg-tag">assistant</div>
-                  <div className="vwc-msg-text vwc-typing">
-                    <i />
-                    <i />
-                    <i />
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="vwc-chat-suggest">
-              {t.agentSuggest.map((s, i) => (
-                <button key={i} type="button" onClick={() => send(s)} disabled={busy}>
-                  {s}
-                </button>
-              ))}
-            </div>
-            <form
-              className="vwc-chat-input"
-              toolname="ask_devcodeagency_assistant"
-              tooldescription="Sends a question to the devcodeagency assistant about pricing, timelines, templates, or kickoff planning."
-              onSubmit={(e) => {
-                e.preventDefault();
-                send();
-              }}
-            >
-              <label className="sr-only" htmlFor={messageId}>
-                {lang === "en" ? "Message the devcodeagency assistant" : "Pesan untuk asisten devcodeagency"}
-              </label>
-              <input
-                id={messageId}
-                name="message"
-                toolparamdescription="The user's question or instruction for the devcodeagency assistant."
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder={lang === "en" ? "Ask anything…" : "Tanya apa saja…"}
-              />
-              <button type="submit" disabled={busy} aria-label={lang === "en" ? "Send message" : "Kirim pesan"}>
-                →
+
+        <div className="codex-loop-demo">
+          <div className="codex-loop-topbar">
+            <span><i /> project / warung-kopi</span>
+            <span>Codex connected</span>
+          </div>
+          <div className="codex-loop-prompt">
+            <label htmlFor="codex-demo-prompt">{copy.input}</label>
+            <textarea
+              id="codex-demo-prompt"
+              value={prompt}
+              onChange={(event) => setPrompt(event.target.value)}
+              disabled={stage !== "idle" && stage !== "ready"}
+              rows={3}
+            />
+            <div>
+              <span>Estimated 64K–112K tokens</span>
+              <button type="button" onClick={run} disabled={stage !== "idle" && stage !== "ready"}>
+                {stage === "ready" ? copy.again : copy.run} →
               </button>
-            </form>
+            </div>
+          </div>
+
+          <div className="codex-loop-events" aria-live="polite">
+            {(["plan", "edit", "check", "ready"] as const).map((item, index) => {
+              const active = stageIndex === index;
+              const done = stageIndex > index || stage === "ready";
+              return (
+                <div key={item} className={`${active ? "is-active" : ""} ${done ? "is-done" : ""}`}>
+                  <span>{done ? "✓" : active ? "•" : String(index + 1).padStart(2, "0")}</span>
+                  <div><strong>{STAGES[item].label}</strong><code>{STAGES[item].file}</code></div>
+                </div>
+              );
+            })}
+          </div>
+
+          {stage === "ready" && <div className="codex-loop-result">{copy.ready}</div>}
+          <div className="codex-loop-suggestions">
+            {PROMPTS[lang].map((suggestion) => (
+              <button key={suggestion} type="button" onClick={() => { setPrompt(suggestion); setStage("idle"); }}>
+                {suggestion}
+              </button>
+            ))}
           </div>
         </div>
       </div>

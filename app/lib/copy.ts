@@ -24,7 +24,7 @@ export type Copy = {
   pricingH: string;
   pricing: { t: string; p: string; per: string; l: string[]; featured?: boolean }[];
   casesH: string;
-  cases: { y: string; c: string; d: string; tag: string }[];
+  cases: { y: string; c: string; d: string; tag: string; href: string }[];
   voicesH: string;
   voices: { q: string; a: string }[];
   llmsH: string;
@@ -40,7 +40,7 @@ export type Copy = {
 
 export const COPY: Record<Lang, Copy> = {
   en: {
-    nav: { services: "Services", cms: "AI CMS", marketplace: "Marketplace", tools: "Tools", pricing: "Pricing", cases: "Work", faq: "FAQ", blog: "Journal" },
+    nav: { services: "Services", cms: "AI CMS", marketplace: "Starters", tools: "Studio", pricing: "Credits", cases: "Work", faq: "FAQ", blog: "Journal" },
     badge: "AI-AGENT-NATIVE STUDIO · EST. 2024",
     h1a: "Ship the product",
     h1b: "the agents already understand.",
@@ -49,46 +49,48 @@ export const COPY: Record<Lang, Copy> = {
     cta2: "Talk to the agent",
     heroLabel: "// LIVE / generating site.tsx",
     heroPrompt: "build a landing page for a calm-tech journaling app, agent-ready",
-    sectionTagline: { services: "03 / SERVICES", agent: "05 / AGENT DEMO", market: "06 / MARKETPLACE", tools: "08 / TOOLS", pricing: "09 / PRICING", cases: "02 / SELECTED WORK", voices: "10 / VOICES", llms: "11 / FOR AGENTS", faq: "12 / FAQ", blog: "13 / JOURNAL" },
-    servicesH: "Three ways we build with you.",
+    sectionTagline: { services: "01 / HOW IT WORKS", agent: "02 / CODEX BUILD LOOP", market: "03 / WEBSITE STARTERS", tools: "05 / STUDIO CAPABILITIES", pricing: "06 / CREDITS & HIRE DEV", cases: "07 / SELECTED WORK", voices: "08 / VOICES", llms: "FOR AGENTS", faq: "09 / FAQ", blog: "10 / JOURNAL" },
+    servicesH: "From static files to a shipped website.",
     services: [
-      { k: "DFY/01", t: "Done-for-you sprint", d: "One week. One surface. We pair senior engineers with coding agents to ship a polished slice of your product: production grade, not a prototype.", price: "from $1,400" },
-      { k: "DFY/02", t: "Full MVP build", d: "Two to three weeks. Web app, auth, payments, agent layer, JSON-LD, analytics. You get the repo, the deploy keys, and a Loom walkthrough.", price: "from $4,800" },
-      { k: "DFY/03", t: "Async retainer", d: "Async pair-programming, monthly. Your roadmap, our humans + agents. Ship something real every week.", price: "$3,200/mo" }
+      { k: "DROP/01", t: "Drop & publish", d: "Drop a static folder or ZIP. We validate the files and create a temporary live preview that is ready to share.", price: "free / 0 token" },
+      { k: "CODEX/02", t: "Build with Codex", d: "Describe a change, preview it live, and spend weighted tokens only when Codex works on your website.", price: "token-based usage" },
+      { k: "DEV/03", t: "Hire a developer", d: "A human developer reviews, builds, and ships with Codex every month when you need ongoing help.", price: "from Rp6m/mo" }
     ],
-    agentH: "Try the agent. It actually does things.",
-    agentSub: "Ask in plain English or Bahasa. The assistant can quote work, draft a brief, recommend a template, or schedule a kickoff. It's the same endpoint other agents call.",
-    agentSuggest: ["I need a landing page in 5 days under $1,500", "Recommend a template for an UMKM directory", "Draft a brief for a Stripe-powered SaaS MVP", "What's your fastest ship time?"],
-    marketH: "Templates, agent-ready out of the box.",
-    marketSub: "Every template ships with typed APIs, JSON-LD, llms.txt, and an /agent.json manifest. Buy once, fork forever.",
+    agentH: "Describe it. Watch Codex build it.",
+    agentSub: "Start from a dropped website or a starter, describe the change, and follow the plan, edit, check, and preview loop.",
+    agentSuggest: ["Make the hero more premium", "Add a WhatsApp contact button", "Turn this into a SaaS waitlist", "Check mobile layout and accessibility"],
+    marketH: "Pick a website starter.",
+    marketSub: "Choose a useful starting structure, preview it immediately, then customize every part with Codex.",
     market: [
-      { sku: "VWC-001", t: "Quietkit", d: "Calm-tech SaaS starter. Next.js 15, Stripe, Resend, agent endpoint.", price: "$89", tag: "BESTSELLER" },
-      { sku: "VWC-002", t: "Warungkit", d: "UMKM commerce template. Bahasa-first, WhatsApp checkout, QRIS.", price: "$69", tag: "ID" },
-      { sku: "VWC-003", t: "Agentpost", d: "Headless blog tuned for GEO. JSON-LD per post, llms.txt generator.", price: "$49", tag: "SEO" },
-      { sku: "VWC-004", t: "Pocketboard", d: "Mobile-first dashboard kit. Expo + tRPC + Drizzle.", price: "$129", tag: "NEW" },
-      { sku: "VWC-005", t: "Schemaforge", d: "Drop-in component to render any Schema.org type.", price: "$29", tag: "UTILITY" },
-      { sku: "VWC-006", t: "Voicepage", d: "Voice-search optimized landing kit. Spoken-form FAQs.", price: "$59", tag: "VOICE" }
+      { sku: "START-01", t: "Product launch", d: "Hero, benefits, social proof, and launch CTA.", price: "Use starter", tag: "POPULAR" },
+      { sku: "START-02", t: "Creative portfolio", d: "Selected work, profile, services, and contact.", price: "Use starter", tag: "PORTFOLIO" },
+      { sku: "START-03", t: "Local business", d: "Services, location, hours, and direct contact.", price: "Use starter", tag: "LOCAL" },
+      { sku: "START-04", t: "SaaS waitlist", d: "Product story, feature preview, and signup form.", price: "Use starter", tag: "SAAS" },
+      { sku: "START-05", t: "Event page", d: "Schedule, speakers, venue, and registration.", price: "Use starter", tag: "EVENT" },
+      { sku: "START-06", t: "Documentation", d: "Navigation, search-ready guides, and code examples.", price: "Use starter", tag: "DOCS" }
     ],
-    toolsH: "Tiny tools we ship as we work.",
+    toolsH: "Everything needed to move from file to live site.",
     tools: [
-      { t: "Schema Forge", d: "Generate, validate, and embed JSON-LD in one paste.", price: "Free" },
-      { t: "llms.txt Builder", d: "Turn your sitemap into a clean llms.txt in 10 seconds.", price: "Free" },
-      { t: "Agent Checkout SDK", d: "Let other agents buy your products with one POST.", price: "$19/mo" }
+      { t: "Static Drop", d: "Validate a folder or ZIP and create a shareable temporary website.", price: "Free" },
+      { t: "Live Preview", d: "See every website change in a real browser experience.", price: "Included" },
+      { t: "Codex Editor", d: "Plan, edit, and verify website changes from natural-language instructions.", price: "K/M tokens" },
+      { t: "Version Control", d: "Track changes and keep a recoverable history of every build.", price: "Included" }
     ],
-    pricingH: "Honest pricing. No retainers in disguise.",
+    pricingH: "Buy token usage, or hire a developer monthly.",
     pricing: [
-      { t: "Starter Sprint", p: "$1,400", per: "one week", l: ["1 surface (landing, dashboard, or feature)", "Production-ready code, your repo", "Agent-readable JSON-LD + llms.txt", "1 round of revisions"] },
-      { t: "Full MVP", p: "$4,800", per: "two to three weeks", l: ["Web app, auth, payments", "Agent endpoint + /agent.json", "GEO + SEO baseline", "Loom walkthrough + 30 days support"], featured: true },
-      { t: "Async Retainer", p: "$3,200", per: "per month", l: ["Async pair-programming", "Weekly shipped slice", "Slack + Linear", "Cancel anytime"] }
+      { t: "Starter", p: "Rp100k", per: "800K tokens", l: ["For focused website edits", "Usage-based Codex work", "Buy again when needed"] },
+      { t: "Builder", p: "Rp450k", per: "4M tokens", l: ["For iterative website builds", "Lower cost per token", "Usage history included"], featured: true },
+      { t: "Studio", p: "Rp1.2m", per: "12M tokens", l: ["For larger build sessions", "Best beta token value", "Usage history included"] },
+      { t: "Hire Dev", p: "Rp6m", per: "per month", l: ["20 engineering hours", "Weekly shipped update", "Review and deployment", "Token usage separate"] }
     ],
-    casesH: "Selected work, lightly redacted.",
+    casesH: "Real outcomes across web, speed, and search.",
     cases: [
-      { y: "26", c: "Software Company Technical SEO", d: "Health Score 100, GTmetrix D > A, 1,512 URLs crawled", tag: "SEO, Speed, GEO" },
-      { y: "26", c: "Software Company Content & GEO", d: "1K active users, 384+ leads, AI Search visibility", tag: "Content Strategy" },
-      { y: "26", c: "Canggu Beauty Clinic SEO", d: "#1 organic rankings and 150+ bookings/month", tag: "Local SEO" },
-      { y: "26", c: "Bali Tour & Travel Website", d: "Website development, SEO on-page setup, and page speed optimization", tag: "Web + SEO" },
-      { y: "26", c: "Canggu Workspace Website", d: "Workspace/eatery page speed optimization for Canggu audience", tag: "Speed, Bali" },
-      { y: "26", c: "Multi-site Page Speed Optimization", d: "GTmetrix Grade A, 85% performance, 97% structure", tag: "Core Web Vitals" }
+      { y: "26", c: "Software Company Technical SEO", d: "Health Score 100, GTmetrix D → A, 1,512 URLs crawled", tag: "SEO, Speed, GEO", href: "https://www.devcodeagency.com/work/software-company-technical-seo" },
+      { y: "26", c: "Software Company Content & GEO", d: "1K active users, 384+ leads, and AI Search visibility", tag: "Content Strategy", href: "https://www.devcodeagency.com/work/software-company-content-geo" },
+      { y: "26", c: "Canggu Beauty Clinic SEO", d: "#1 organic rankings and 150+ bookings per month", tag: "Local SEO", href: "https://www.devcodeagency.com/work/canggu-beauty-clinic-seo" },
+      { y: "26", c: "Bali Tour & Travel Website", d: "Website development, on-page SEO, and page speed optimization", tag: "Web + SEO", href: "https://www.devcodeagency.com/work/bali-tour-travel-website" },
+      { y: "26", c: "Canggu Workspace Website", d: "Page speed optimization for a workspace and eatery audience", tag: "Speed, Bali", href: "https://www.devcodeagency.com/work/canggu-workspace-page-speed" },
+      { y: "26", c: "Multi-site Page Speed Optimization", d: "GTmetrix Grade A, 85% performance, and 97% structure", tag: "Core Web Vitals", href: "https://www.devcodeagency.com/work/multi-site-page-speed-optimization" }
     ],
     voicesH: "What founders said.",
     voices: [
@@ -110,7 +112,7 @@ export const COPY: Record<Lang, Copy> = {
       { q: "What does AI-agent-native mean?", a: "It means the site is structured so AI agents (ChatGPT, Claude, Perplexity, custom bots) can read, cite, and transact with it. We ship JSON-LD for every entity, an llms.txt context file, an agent.json capability manifest, and a documented /api/agent endpoint." },
       { q: "How fast can you ship?", a: "Median ship time across 47 projects is 9 days from kickoff to production. A starter sprint is 5–7 days; a full MVP is 14–21 days." },
       { q: "Do you work in Bahasa Indonesia?", a: "Yes. The studio is bilingual EN/ID. Briefs, Slack, code comments, and customer-facing copy can all be in Bahasa. We ship Bahasa-first templates like Warungkit." },
-      { q: "How much does it cost?", a: "Starter Sprint is $1,400 (one week). Full MVP is $4,800 (two to three weeks). Async Retainer is $3,200/month. No hidden fees, no setup costs." },
+      { q: "How much does it cost?", a: "Static Drop is free. Codex work is metered in K or M weighted tokens based on actual uncached input, cached input, output, and model. Beta packs start at Rp100,000 for 800K weighted tokens. Hire Dev starts at Rp6 million per month; token usage is purchased separately." },
       { q: "Can an AI agent buy a template directly?", a: "Yes. POST to /api/agent/checkout with a SKU and return URL. The endpoint prepares a checkout handoff; connect a live payment provider for automatic payment and license delivery." },
       { q: "How do you optimize for ChatGPT and Perplexity (GEO)?", a: "Concise TL;DR blocks, Q&A schema, citable statistics, clean HTML structure, and an llms.txt context file. We've measured a 3.4x lift in AI-engine citations for client sites within 60 days." }
     ],
@@ -130,7 +132,7 @@ export const COPY: Record<Lang, Copy> = {
     ]
   },
   id: {
-    nav: { services: "Layanan", cms: "AI CMS", marketplace: "Marketplace", tools: "Tools", pricing: "Harga", cases: "Karya", faq: "FAQ", blog: "Jurnal" },
+    nav: { services: "Layanan", cms: "AI CMS", marketplace: "Starter", tools: "Studio", pricing: "Kredit", cases: "Karya", faq: "FAQ", blog: "Jurnal" },
     badge: "STUDIO AI-AGENT-NATIVE · SEJAK 2024",
     h1a: "Kirim produk",
     h1b: "yang sudah dimengerti agent.",
@@ -139,46 +141,48 @@ export const COPY: Record<Lang, Copy> = {
     cta2: "Tanya agent-nya",
     heroLabel: "// LIVE / membuat site.tsx",
     heroPrompt: "buat landing page untuk app jurnal calm-tech, siap-agent",
-    sectionTagline: { services: "03 / LAYANAN", agent: "05 / DEMO AGENT", market: "06 / MARKETPLACE", tools: "08 / TOOLS", pricing: "09 / HARGA", cases: "02 / KARYA TERPILIH", voices: "10 / SUARA", llms: "11 / UNTUK AGENT", faq: "12 / FAQ", blog: "13 / JURNAL" },
-    servicesH: "Tiga cara kami bangun bareng kamu.",
+    sectionTagline: { services: "01 / CARA KERJA", agent: "02 / ALUR BUILD CODEX", market: "03 / STARTER WEBSITE", tools: "05 / KAPABILITAS STUDIO", pricing: "06 / KREDIT & HIRE DEV", cases: "07 / KARYA TERPILIH", voices: "08 / SUARA", llms: "UNTUK AGENT", faq: "09 / FAQ", blog: "10 / JURNAL" },
+    servicesH: "Dari file static sampai website terkirim.",
     services: [
-      { k: "DFY/01", t: "Sprint done-for-you", d: "Satu minggu. Satu permukaan. Engineer senior + agent coding untuk satu slice produk yang siap produksi, bukan prototipe.", price: "mulai $1,400" },
-      { k: "DFY/02", t: "Bangun MVP penuh", d: "Dua sampai tiga minggu. Web app, auth, pembayaran, agent layer, JSON-LD, analytics. Repo, deploy key, dan Loom walkthrough kamu pegang.", price: "mulai $4,800" },
-      { k: "DFY/03", t: "Retainer async", d: "Pair-programming async tiap bulan. Roadmap kamu, manusia + agent kami. Setiap minggu ada yang dirilis.", price: "$3,200/bln" }
+      { k: "DROP/01", t: "Drop & publish", d: "Drop folder static atau ZIP. File divalidasi lalu dibuatkan temporary live preview yang siap dibagikan.", price: "gratis / 0 token" },
+      { k: "CODEX/02", t: "Build pakai Codex", d: "Jelaskan perubahan, lihat preview live, dan gunakan weighted token hanya saat Codex mengerjakan websitemu.", price: "usage berbasis token" },
+      { k: "DEV/03", t: "Hire developer", d: "Developer manusia melakukan review, build, dan ship bersama Codex setiap bulan saat kamu butuh bantuan berkelanjutan.", price: "mulai Rp6jt/bln" }
     ],
-    agentH: "Coba agent-nya. Beneran bisa eksekusi.",
-    agentSub: "Tanya pakai Bahasa atau Inggris. Asisten bisa kasih quote, draft brief, rekomendasi template, atau jadwal kickoff. Endpoint yang sama dipanggil agent lain.",
-    agentSuggest: ["Butuh landing page 5 hari di bawah $1,500", "Rekomendasi template untuk direktori UMKM", "Draft brief MVP SaaS pakai Stripe", "Berapa cepat bisa ship?"],
-    marketH: "Template, siap-agent dari kotaknya.",
-    marketSub: "Setiap template hadir dengan API typed, JSON-LD, llms.txt, dan manifest /agent.json. Beli sekali, fork selamanya.",
+    agentH: "Jelaskan. Lihat Codex membangunnya.",
+    agentSub: "Mulai dari website hasil drop atau starter, jelaskan perubahan, lalu ikuti alur plan, edit, check, dan preview.",
+    agentSuggest: ["Bikin hero lebih premium", "Tambah tombol kontak WhatsApp", "Ubah jadi SaaS waitlist", "Cek mobile dan aksesibilitas"],
+    marketH: "Pilih starter website.",
+    marketSub: "Pilih struktur awal yang sesuai, preview langsung, lalu custom seluruh bagiannya dengan Codex.",
     market: [
-      { sku: "VWC-001", t: "Quietkit", d: "Starter SaaS calm-tech. Next.js 15, Stripe, Resend, endpoint agent.", price: "$89", tag: "TERLARIS" },
-      { sku: "VWC-002", t: "Warungkit", d: "Template commerce UMKM. Bahasa-first, checkout WhatsApp, QRIS.", price: "$69", tag: "ID" },
-      { sku: "VWC-003", t: "Agentpost", d: "Blog headless yang ditune untuk GEO. JSON-LD tiap post, generator llms.txt.", price: "$49", tag: "SEO" },
-      { sku: "VWC-004", t: "Pocketboard", d: "Kit dashboard mobile-first. Expo + tRPC + Drizzle.", price: "$129", tag: "BARU" },
-      { sku: "VWC-005", t: "Schemaforge", d: "Komponen drop-in untuk render tipe Schema.org apa pun.", price: "$29", tag: "UTILITY" },
-      { sku: "VWC-006", t: "Voicepage", d: "Landing kit yang dioptimasi voice-search. FAQ bentuk lisan.", price: "$59", tag: "VOICE" }
+      { sku: "START-01", t: "Product launch", d: "Hero, benefit, social proof, dan CTA peluncuran.", price: "Pakai starter", tag: "POPULER" },
+      { sku: "START-02", t: "Creative portfolio", d: "Karya pilihan, profil, layanan, dan kontak.", price: "Pakai starter", tag: "PORTFOLIO" },
+      { sku: "START-03", t: "Local business", d: "Layanan, lokasi, jam buka, dan kontak langsung.", price: "Pakai starter", tag: "LOKAL" },
+      { sku: "START-04", t: "SaaS waitlist", d: "Cerita produk, preview fitur, dan form pendaftaran.", price: "Pakai starter", tag: "SAAS" },
+      { sku: "START-05", t: "Event page", d: "Jadwal, pembicara, venue, dan registrasi.", price: "Pakai starter", tag: "EVENT" },
+      { sku: "START-06", t: "Documentation", d: "Navigasi, panduan, dan contoh kode.", price: "Pakai starter", tag: "DOKS" }
     ],
-    toolsH: "Tools kecil yang kami rilis sambil kerja.",
+    toolsH: "Semua yang dibutuhkan dari file sampai live site.",
     tools: [
-      { t: "Schema Forge", d: "Generate, validasi, dan embed JSON-LD dalam satu paste.", price: "Gratis" },
-      { t: "llms.txt Builder", d: "Ubah sitemap jadi llms.txt yang rapi dalam 10 detik.", price: "Gratis" },
-      { t: "Agent Checkout SDK", d: "Biarkan agent lain beli produkmu dengan satu POST.", price: "$19/bln" }
+      { t: "Static Drop", d: "Validasi folder atau ZIP lalu buat website temporary yang bisa dibagikan.", price: "Gratis" },
+      { t: "Live Preview", d: "Lihat setiap perubahan website sebagai pengalaman browser nyata.", price: "Termasuk" },
+      { t: "Codex Editor", d: "Plan, edit, dan verifikasi perubahan dari instruksi bahasa natural.", price: "K/M token" },
+      { t: "Version Control", d: "Lacak perubahan dan simpan riwayat setiap build.", price: "Termasuk" }
     ],
-    pricingH: "Harga jujur. Bukan retainer terselubung.",
+    pricingH: "Beli token usage, atau hire developer bulanan.",
     pricing: [
-      { t: "Starter Sprint", p: "$1,400", per: "satu minggu", l: ["1 surface (landing, dashboard, atau fitur)", "Code siap produksi, repo kamu", "JSON-LD + llms.txt readable agent", "1 putaran revisi"] },
-      { t: "Full MVP", p: "$4,800", per: "dua–tiga minggu", l: ["Web app, auth, pembayaran", "Endpoint agent + /agent.json", "Baseline GEO + SEO", "Loom walkthrough + support 30 hari"], featured: true },
-      { t: "Async Retainer", p: "$3,200", per: "per bulan", l: ["Pair-programming async", "Slice dirilis tiap minggu", "Slack + Linear", "Cancel kapan saja"] }
+      { t: "Starter", p: "Rp100rb", per: "800K token", l: ["Untuk edit website terarah", "Pemakaian Codex berbasis usage", "Beli lagi saat dibutuhkan"] },
+      { t: "Builder", p: "Rp450rb", per: "4M token", l: ["Untuk build website iteratif", "Biaya per token lebih hemat", "Riwayat penggunaan"], featured: true },
+      { t: "Studio", p: "Rp1,2jt", per: "12M token", l: ["Untuk sesi build lebih besar", "Value token beta terbaik", "Riwayat penggunaan"] },
+      { t: "Hire Dev", p: "Rp6jt", per: "per bulan", l: ["20 jam engineering", "Update terkirim tiap minggu", "Review dan deployment", "Token usage terpisah"] }
     ],
-    casesH: "Karya terpilih, sedikit diredaksi.",
+    casesH: "Hasil nyata dari web, speed, dan search.",
     cases: [
-      { y: "26", c: "Software Company Technical SEO", d: "Health Score 100, GTmetrix D > A, 1.512 URL diaudit", tag: "SEO, Speed, GEO" },
-      { y: "26", c: "Software Company Content & GEO", d: "1K active users, 384+ leads, muncul di AI Search", tag: "Content Strategy" },
-      { y: "26", c: "Canggu Beauty Clinic SEO", d: "Ranking #1 organic dan 150+ booking/bulan", tag: "Local SEO" },
-      { y: "26", c: "Bali Tour & Travel Website", d: "Website development, setup SEO on-page, dan page speed optimization", tag: "Web + SEO" },
-      { y: "26", c: "Canggu Workspace Website", d: "Optimasi page speed untuk workspace/eatery audience Canggu", tag: "Speed, Bali" },
-      { y: "26", c: "Multi-site Page Speed Optimization", d: "GTmetrix Grade A, performance 85%, structure 97%", tag: "Core Web Vitals" }
+      { y: "26", c: "Technical SEO Perusahaan Software", d: "Health Score 100, GTmetrix D → A, dan 1.512 URL dicrawl", tag: "SEO, Speed, GEO", href: "https://www.devcodeagency.com/work/software-company-technical-seo" },
+      { y: "26", c: "Content & GEO Perusahaan Software", d: "1K pengguna aktif, 384+ leads, dan visibilitas AI Search", tag: "Content Strategy", href: "https://www.devcodeagency.com/work/software-company-content-geo" },
+      { y: "26", c: "SEO Klinik Kecantikan Canggu", d: "Ranking organik #1 dan 150+ booking per bulan", tag: "Local SEO", href: "https://www.devcodeagency.com/work/canggu-beauty-clinic-seo" },
+      { y: "26", c: "Website Tour & Travel Bali", d: "Web development, SEO on-page, dan optimasi page speed", tag: "Web + SEO", href: "https://www.devcodeagency.com/work/bali-tour-travel-website" },
+      { y: "26", c: "Website Workspace Canggu", d: "Optimasi page speed untuk audiens workspace dan eatery", tag: "Speed, Bali", href: "https://www.devcodeagency.com/work/canggu-workspace-page-speed" },
+      { y: "26", c: "Optimasi Page Speed Multi-site", d: "GTmetrix Grade A, performa 85%, dan structure 97%", tag: "Core Web Vitals", href: "https://www.devcodeagency.com/work/multi-site-page-speed-optimization" }
     ],
     voicesH: "Apa kata founder.",
     voices: [
@@ -200,7 +204,7 @@ export const COPY: Record<Lang, Copy> = {
       { q: "Apa artinya AI-agent-native?", a: "Artinya site distruktur supaya AI agent (ChatGPT, Claude, Perplexity, bot custom) bisa baca, sitasi, dan transaksi. Kami rilis JSON-LD untuk tiap entity, file konteks llms.txt, manifest kapabilitas agent.json, dan endpoint /api/agent yang terdokumentasi." },
       { q: "Berapa cepat bisa ship?", a: "Median ship time dari 47 proyek adalah 9 hari dari kickoff sampai produksi. Starter sprint 5–7 hari; full MVP 14–21 hari." },
       { q: "Bisa kerja pakai Bahasa Indonesia?", a: "Bisa. Studio dwibahasa EN/ID. Brief, Slack, comment code, dan copy customer-facing semua bisa Bahasa. Kami juga rilis template Bahasa-first seperti Warungkit." },
-      { q: "Berapa biayanya?", a: "Starter Sprint $1,400 (satu minggu). Full MVP $4,800 (dua-tiga minggu). Retainer Async $3,200/bulan. Tanpa biaya tersembunyi, tanpa biaya setup." },
+      { q: "Berapa biayanya?", a: "Static Drop gratis. Pengerjaan Codex dihitung dalam K atau M weighted token berdasarkan input non-cache, cached input, output aktual, dan model. Paket beta mulai Rp100.000 untuk 800K weighted token. Hire Dev mulai Rp6 juta per bulan; token usage dibeli terpisah." },
       { q: "Bisa AI agent beli template langsung?", a: "Bisa. POST ke /api/agent/checkout dengan SKU dan return URL. Endpoint menyiapkan checkout handoff; sambungkan payment provider live untuk pembayaran dan delivery lisensi otomatis." },
       { q: "Gimana optimasi untuk ChatGPT dan Perplexity (GEO)?", a: "Blok TL;DR ringkas, Q&A schema, statistik sitabel, struktur HTML bersih, dan file konteks llms.txt. Kami ukur lift sitasi 3.4x di AI engine untuk site klien dalam 60 hari." }
     ],

@@ -1,71 +1,45 @@
 import type { Copy, Lang } from "../lib/copy";
 import { SectionLabel } from "./shared";
 
-export function Marketplace({ t, lang }: { t: Copy; lang: Lang }) {
+const STARTERS = [
+  { code: "LAND/01", title: "Product launch", description: "Hero, benefits, social proof, pricing, FAQ, dan CTA.", tag: "CONVERSION", tone: "lime" },
+  { code: "PORT/02", title: "Creative portfolio", description: "Selected work, project detail, about, dan contact flow.", tag: "EDITORIAL", tone: "ink" },
+  { code: "UMKM/03", title: "Local business", description: "Menu atau layanan, lokasi, WhatsApp CTA, dan jam buka.", tag: "BAHASA", tone: "sand" },
+  { code: "SAAS/04", title: "SaaS waitlist", description: "Feature story, use cases, email capture, dan changelog.", tag: "STARTUP", tone: "blue" },
+  { code: "EVNT/05", title: "Event page", description: "Agenda, speaker, venue, sponsor, dan registration CTA.", tag: "FAST", tone: "orange" },
+  { code: "DOCS/06", title: "Documentation", description: "Navigation, search-ready structure, examples, dan API sections.", tag: "TECHNICAL", tone: "gray" },
+];
+
+export function Marketplace({ lang }: { t: Copy; lang: Lang }) {
+  const id = lang === "id";
   return (
     <section className="vwc-section" id="marketplace">
-      <SectionLabel>{t.sectionTagline.market}</SectionLabel>
+      <SectionLabel>{id ? "03 / STARTER WEBSITE" : "03 / WEBSITE STARTERS"}</SectionLabel>
       <div className="vwc-section-head">
-        <h2 className="vwc-h2">{t.marketH}</h2>
-        <p className="vwc-lead vwc-lead-r">{t.marketSub}</p>
+        <h2 className="vwc-h2">{id ? "Mulai dari struktur yang sudah punya arah." : "Start from a structure with a point of view."}</h2>
+        <p className="vwc-lead vwc-lead-r">
+          {id
+            ? "Pilih starter, ubah dengan Codex, lalu publish. Semua starter static-first, responsive, dan bisa diekspor."
+            : "Choose a starter, reshape it with Codex, then publish. Every starter is static-first, responsive, and exportable."}
+        </p>
       </div>
-      <div className="vwc-market-grid">
-        {t.market.map((m, i) => (
-          <article key={m.sku} className="vwc-card">
-            <div className="vwc-card-vis" aria-hidden="true">
-              <Placeholder seed={i} />
-              <span className="vwc-card-tag">{m.tag}</span>
+      <div className="starter-grid">
+        {STARTERS.map((starter, index) => (
+          <article key={starter.code} className={`starter-card starter-${starter.tone}`}>
+            <div className="starter-preview" aria-hidden="true">
+              <div className="starter-preview-nav"><span /><span /></div>
+              <div className="starter-preview-copy"><i /><i /><i /></div>
+              <div className="starter-preview-art">{String(index + 1).padStart(2, "0")}</div>
             </div>
-            <div className="vwc-card-body">
-              <div className="vwc-card-meta">
-                <span className="vwc-card-sku">{m.sku}</span>
-                <span className="vwc-card-price">{m.price}</span>
-              </div>
-              <h3 className="vwc-card-t">{m.t}</h3>
-              <p className="vwc-card-d">{m.d}</p>
-              <div className="vwc-card-foot">
-                <a href="#start" className="vwc-link">
-                  {lang === "en" ? "View" : "Lihat"} →
-                </a>
-                <code className="vwc-card-api">POST /api/agent/checkout</code>
-              </div>
+            <div className="starter-card-body">
+              <div><code>{starter.code}</code><span>{starter.tag}</span></div>
+              <h3>{starter.title}</h3>
+              <p>{starter.description}</p>
+              <a href="#start">{id ? "Pakai starter" : "Use starter"} →</a>
             </div>
           </article>
         ))}
       </div>
     </section>
-  );
-}
-
-function Placeholder({ seed }: { seed: number }) {
-  const patterns = [
-    { bg: "#ECE9DF", stripe: "#D4CFC0" },
-    { bg: "#E5E2D6", stripe: "#C9C2AB" },
-    { bg: "#EDE7D4", stripe: "#D2C9A8" },
-    { bg: "#E8E5DA", stripe: "#CFCAB8" },
-    { bg: "#EAE6D8", stripe: "#CFC8AE" },
-    { bg: "#E6E2D2", stripe: "#CCC4A6" },
-  ];
-  const p = patterns[seed % patterns.length];
-  return (
-    <svg viewBox="0 0 320 180" preserveAspectRatio="none" width="100%" height="100%">
-      <rect width="320" height="180" fill={p.bg} />
-      <g stroke={p.stripe} strokeWidth="1">
-        {Array.from({ length: 40 }).map((_, i) => (
-          <line key={i} x1={i * 10} y1="0" x2={i * 10 - 60} y2="180" />
-        ))}
-      </g>
-      <text
-        x="160"
-        y="96"
-        textAnchor="middle"
-        fontFamily="ui-monospace, JetBrains Mono, monospace"
-        fontSize="10"
-        fill="#7c7864"
-        letterSpacing="2"
-      >
-        PRODUCT  COVER
-      </text>
-    </svg>
   );
 }

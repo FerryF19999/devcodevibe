@@ -10,10 +10,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "fflate": "0.8.2",
     "next": "^15.5.5",
     "posthog-js": "^1.392.0",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react-dom": "19.0.0",
+    "wrangler": "4.102.0"
   },
   "devDependencies": {
     "@types/node": "^22",

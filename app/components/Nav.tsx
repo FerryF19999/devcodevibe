@@ -1,14 +1,15 @@
 import type { Copy, Lang } from "../lib/copy";
 
-type Props = { lang: Lang; t: Copy; currentPage?: "home" | "work"; languageHrefs?: { en: string; id: string } };
+type Props = {
+  lang: Lang;
+  t: Copy;
+  currentPage?: "home" | "work";
+  languageHrefs?: { en: string; id: string };
+};
 
 function homeHref(lang: Lang, hash = "") {
   const base = lang === "id" ? "/id" : "/";
   return hash ? `${base}${hash}` : base;
-}
-
-function workHref(lang: Lang) {
-  return lang === "id" ? "/id/work" : "/work";
 }
 
 export function Nav({ lang, t, currentPage = "home", languageHrefs }: Props) {
@@ -26,11 +27,12 @@ export function Nav({ lang, t, currentPage = "home", languageHrefs }: Props) {
         <span className="vwc-logo-text">devcodeagency</span>
       </a>
       <div className="vwc-nav-links">
+        <a href={homeHref(lang)}>Drop</a>
         <a href={homeHref(lang, "#services")}>{t.nav.services}</a>
-        <a href={workHref(lang)}>{t.nav.cases}</a>
-        <a href={homeHref(lang, "#agent")}>{t.nav.cms}</a>
         <a href={homeHref(lang, "#marketplace")}>{t.nav.marketplace}</a>
+        <a href={homeHref(lang, "#tools")}>{t.nav.tools}</a>
         <a href={homeHref(lang, "#pricing")}>{t.nav.pricing}</a>
+        <a href={currentPage === "work" ? (lang === "id" ? "/id/work" : "/work") : "#cases"}>{t.nav.cases}</a>
         <a href={homeHref(lang, "#faq")}>{t.nav.faq}</a>
         <a href={homeHref(lang, "#blog")}>{t.nav.blog}</a>
       </div>

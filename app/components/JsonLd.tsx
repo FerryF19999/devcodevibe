@@ -8,7 +8,7 @@ const ORG = {
   url: SITE_URL,
   logo: OG_IMAGE_URL,
   description:
-    "AI-agent-native studio offering done-for-you vibe coding services, agent-ready templates, and small SaaS tools for indie hackers. Bilingual English / Bahasa Indonesia.",
+    "Website studio for static Drop previews, Codex-powered building with weighted token usage, and monthly developer support. Bilingual English and Bahasa Indonesia.",
   foundingDate: "2024",
   email: CONTACT_EMAIL,
   knowsLanguage: ["en", "id"],
@@ -25,37 +25,37 @@ const SERVICE = {
   url: SITE_URL,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Vibe coding services",
+    name: "Website building services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Starter Sprint",
-          description: "One-week done-for-you sprint shipping a single production-ready surface.",
+          name: "Starter Credits",
+          description: "800K weighted-token beta pack for Codex-powered website work.",
         },
-        price: "1400",
-        priceCurrency: "USD",
+        price: "100000",
+        priceCurrency: "IDR",
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Full MVP Build",
-          description: "Two to three week MVP build with web app, auth, payments, and an agent layer.",
+          name: "Builder Credits",
+          description: "4M weighted-token beta pack for iterative Codex-powered website work.",
         },
-        price: "4800",
-        priceCurrency: "USD",
+        price: "450000",
+        priceCurrency: "IDR",
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Async Retainer",
-          description: "Monthly async pair-programming with humans and AI agents.",
+          name: "Hire Dev",
+          description: "Monthly human developer support with 20 engineering hours and weekly shipped updates.",
         },
-        price: "3200",
-        priceCurrency: "USD",
+        price: "6000000",
+        priceCurrency: "IDR",
       },
     ],
   },
@@ -99,10 +99,10 @@ const FAQ = {
     },
     {
       "@type": "Question",
-      name: "How much does devcodeagency cost?",
+      name: "How much does it cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Starter Sprint is $1,400 (one week). Full MVP is $4,800 (two to three weeks). Async Retainer is $3,200 per month.",
+        text: "Static Drop is free. Beta Codex usage packs start at Rp100,000 for 800K weighted tokens. Monthly Hire Dev starts at Rp6 million, with token usage purchased separately.",
       },
     },
     {
@@ -127,14 +127,14 @@ const FAQ = {
 const PRODUCTS = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "devcodeagency Marketplace",
+  name: "devcodeagency Website Starters",
   itemListElement: [
-    { "@type": "Product", sku: "VWC-001", name: "Quietkit", description: "Calm-tech SaaS starter. Next.js 15, Stripe, Resend, agent endpoint.", offers: { "@type": "Offer", price: "89", priceCurrency: "USD" } },
-    { "@type": "Product", sku: "VWC-002", name: "Warungkit", description: "UMKM commerce template. Bahasa-first, WhatsApp checkout, QRIS.", offers: { "@type": "Offer", price: "69", priceCurrency: "USD" } },
-    { "@type": "Product", sku: "VWC-003", name: "Agentpost", description: "Headless blog tuned for GEO. JSON-LD per post, llms.txt generator.", offers: { "@type": "Offer", price: "49", priceCurrency: "USD" } },
-    { "@type": "Product", sku: "VWC-004", name: "Pocketboard", description: "Mobile-first dashboard kit. Expo + tRPC + Drizzle.", offers: { "@type": "Offer", price: "129", priceCurrency: "USD" } },
-    { "@type": "Product", sku: "VWC-005", name: "Schemaforge", description: "Drop-in component to render any Schema.org type.", offers: { "@type": "Offer", price: "29", priceCurrency: "USD" } },
-    { "@type": "Product", sku: "VWC-006", name: "Voicepage", description: "Voice-search optimized landing kit with spoken-form FAQs.", offers: { "@type": "Offer", price: "59", priceCurrency: "USD" } },
+    { "@type": "CreativeWork", name: "Product Launch", description: "Starter for product launches and new feature announcements." },
+    { "@type": "CreativeWork", name: "Creative Portfolio", description: "Starter for personal work, case studies, and services." },
+    { "@type": "CreativeWork", name: "Local Business", description: "Starter for local businesses with contact and location details." },
+    { "@type": "CreativeWork", name: "SaaS Waitlist", description: "Starter for collecting early product interest." },
+    { "@type": "CreativeWork", name: "Event Page", description: "Starter for events, schedules, speakers, and registration." },
+    { "@type": "CreativeWork", name: "Documentation", description: "Starter for product guides and technical documentation." },
   ],
 };
 
@@ -148,8 +148,8 @@ const SITE = {
 
 const TLDR = {
   summary:
-    "devcodeagency is a bilingual (EN/ID) AI-agent-native studio that builds MVPs in a median of 9 days, sells agent-ready templates from $29, and ships small SaaS tools. Pricing: Starter Sprint $1,400, Full MVP $4,800, Async Retainer $3,200/mo.",
-  topics: ["vibe coding", "AI agent native", "indie hacker", "MVP", "templates", "GEO", "llms.txt"],
+    "devcodeagency turns static folders or ZIP files into temporary live previews, then supports Codex-powered website building with weighted token usage or a monthly human developer. Beta packs start at 800K tokens for Rp100,000 and Hire Dev starts at Rp6 million per month.",
+  topics: ["static website deployment", "live preview", "Codex", "token usage", "website starters", "hire developer"],
 };
 
 export function JsonLd() {
